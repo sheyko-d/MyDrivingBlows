@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="16dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title1"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text1"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title2"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text2"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title3"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text3"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title4"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text4"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title5"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text5"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title6"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text6"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title7"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text7"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title8"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/terms_text8"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+        
+        <com.moysof.mydrivingblows.MediumRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_title9"
+            android:textColor="#ddd"
+            android:textSize="18sp" />
+
+        <com.moysof.mydrivingblows.LightRobotoText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/terms_text9"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</ScrollView>

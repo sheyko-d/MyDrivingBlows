@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_icon_name">My DrivingBlows</string>
+    <string name="app_name">MyDrivingBlows</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_search">Details</string>
+    <string name="title_activity_login">Registration</string>
+    <string name="title_activity_tag">Tag a Plate</string>
+    <string name="title_activity_list">My Tags</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_feed">Tag Feed</string>
+    <string name="add">Add comment</string>
+    <string name="login">Log in</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="sign_up">Sign up</string>
+    <string name="join">ENTER</string>
+    <string name="remember">Keep Me Logged In</string>
+    <string name="code">Code:</string>
+    <string name="send_again">Send again</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="activation">Check your email and enter activation code</string>
+    <string name="back">Back</string>
+    <string name="comment">Add comment</string>
+    <string name="take_picture">TAKE A PICTURE</string>
+    <string name="state_btn">State</string>
+    <string name="post_button_text">POST COMMENT</string>
+    <string name="post_hint">Post</string>
+    <string name="plate_hint">License Plate</string>
+    <string name="no_comments">No comments</string>
+    <string name="gallery">Choose from gallery</string>
+    <string name="camera">Capture</string>
+    <string name="version">Version: </string>
+    <string name="username">Username:</string>
+    <string name="username_or_email">Username or Email:</string>
+    <string name="password">Password:</string>
+    <string name="repeat_password">Repeat password:</string>
+    <string name="email">Email Address:</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="address1">Address №1:</string>
+    <string name="address2">Address №2:</string>
+    <string name="city">City:</string>
+    <string name="state">State:</string>
+    <string name="zip">Zip code:</string>
+    <string name="phone">Phone number:</string>
+    <string name="web">Website:</string>
+    <string name="search_text">Search for License Plate</string>
+    <string name="title_activity_activation">Confirm registration:</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_item">ItemActivity</string>
+    <string name="title_activity_imagectivity">Imagectivity</string>
+    <string name="copyright">Copyright ©2014 All Rights Reserved.</string>
+    <string name="copyright_text">Please do not use this app while driving. Obey all driving laws! MyDrivingBlows will not be held liable for reckless driving while using this app.</string>
+    <string name="dialog_dont_show_again">Agree and don\&apos;t show again</string>
+    <string name="dialog_text">Please keep your eyes on the road and obey applicable laws.\n\nDo not use this app while in motion.\n\nMyDrivingBlows will not be held liable for any accidents caused by unlawful use of this app.</string>
+
+    <string-array name="states_title">
+        <item>Alabama</item>
+        <item>Alaska</item>
+        <item>Arizona</item>
+        <item>Arkansas</item>
+        <item>California</item>
+        <item>Colorado</item>
+        <item>Connecticut</item>
+        <item>District of Columbia</item>
+        <item>Delaware</item>
+        <item>Florida</item>
+        <item>Georgia</item>
+        <item>Government</item>
+        <item>Hawaii</item>
+        <item>Idaho</item>
+        <item>Iowa</item>
+        <item>Illinois</item>
+        <item>Indiana</item>
+        <item>Kansas</item>
+        <item>Kentucky</item>
+        <item>Louisiana</item>
+        <item>Maine</item>
+        <item>Maryland</item>
+        <item>Massachusetts</item>
+        <item>Michigan</item>
+        <item>Minnesota</item>
+        <item>Mississippi</item>
+        <item>Missouri</item>
+        <item>Montana</item>
+        <item>Nebraska</item>
+        <item>Nevada</item>
+        <item>New Hampshire</item>
+        <item>New Jersey</item>
+        <item>New Mexico</item>
+        <item>New York</item>
+        <item>North Carolina</item>
+        <item>North Dakota</item>
+        <item>Ohio</item>
+        <item>Oklahoma</item>
+        <item>Oregon</item>
+        <item>Pennsylvania</item>
+        <item>Rhode Island</item>
+        <item>South Carolina</item>
+        <item>South Dakota</item>
+        <item>Tennessee</item>
+        <item>Texas</item>
+        <item>Utah</item>
+        <item>Vermont</item>
+        <item>Virginia</item>
+        <item>Washington</item>
+        <item>West Virginia</item>
+        <item>Wisconsin</item>
+        <item>Wyoming</item>
+    </string-array>
+    <string-array name="states_value">
+        <item>AL</item>
+        <item>AK</item>
+        <item>AZ</item>
+        <item>AR</item>
+        <item>CA</item>
+        <item>CO</item>
+        <item>CT</item>
+        <item>DC</item>
+        <item>DE</item>
+        <item>FL</item>
+        <item>GA</item>
+        <item>GOV</item>
+        <item>HI</item>
+        <item>ID</item>
+        <item>IL</item>
+        <item>IN</item>
+        <item>IA</item>
+        <item>KS</item>
+        <item>KY</item>
+        <item>LA</item>
+        <item>ME</item>
+        <item>MD</item>
+        <item>MA</item>
+        <item>MI</item>
+        <item>MN</item>
+        <item>MS</item>
+        <item>MO</item>
+        <item>MT</item>
+        <item>NE</item>
+        <item>NV</item>
+        <item>NH</item>
+        <item>NJ</item>
+        <item>NM</item>
+        <item>NY</item>
+        <item>NC</item>
+        <item>ND</item>
+        <item>OH</item>
+        <item>OK</item>
+        <item>OR</item>
+        <item>PA</item>
+        <item>RI</item>
+        <item>SC</item>
+        <item>SD</item>
+        <item>TN</item>
+        <item>TX</item>
+        <item>UT</item>
+        <item>VT</item>
+        <item>VA</item>
+        <item>WA</item>
+        <item>WV</item>
+        <item>WI</item>
+        <item>WY</item>
+    </string-array>
+
+    <string name="auto">Automatically Login</string>
+    <string name="website">www.MyDrivingBlows.com</string>
+    <string name="empty"></string>
+    <string name="comments">COMMENTS:</string>
+    <string name="support">SUPPORT</string>
+    <string name="report">Report a Problem</string>
+    <string name="terms">Terms of Service</string>
+    <string name="feedback">Leave Feedback</string>
+    <string name="feedback_title">LEAVE FEEDBACK</string>
+    <string name="about">About</string>
+    <string name="log_out">Log Out</string>
+    <string name="settings">SETTINGS</string>
+    <string name="share">Share</string>
+    <string name="worst_driver">WORST DRIVER</string>
+    <string name="worst_drivers">WORST DRIVERS</string>
+    <string name="tag_feed">TAG FEED</string>
+    <string name="no_results">NO RESULTS</string>
+    <string name="no_items">NO TAGS YET</string>
+
+    <string-array name="drawer_array">
+        <item></item>
+        <item></item>
+        <item>Tag Feed</item>
+        <item></item>
+        <item>Tag a Plate</item>
+        <item></item>
+        <item>My Tags</item>
+        <item></item>
+    </string-array>
+
+    <string name="login_variants">– Or Use Your Email –</string>
+    <string name="title_activity_contact">Contact Us</string>
+    <string name="app_id">591291470958073</string>
+    <string name="about_text">Please do not use this app while driving. Obey all driving laws! MyDrivingBlows will not be held liable for reckless driving while using this app.</string>
+    <string name="terms_title1">What information do we collect?</string>
+    <string name="terms_text1">We collect information from you when you register on our site.\n\nWhen ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, mailing address or phone number. You may, however, visit our site anonymously.\n\nThe MyDrivingBlows.com Web Site (the "Site") is an online information service provided by MyDrivingBlows ("MyDrivingBlows.com"), subject to your compliance with the terms and conditions set forth below. PLEASE READ THIS DOCUMENT CAREFULLY BEFORE ACCESSING OR USING THE SITE. BY ACCESSING OR USING THE SITE, YOU AGREE TO BE BOUND BY THE TERMS AND CONDITIONS SET FORTH BELOW. IF YOU DO NOT WISH TO BE BOUND BY THESE TERMS AND CONDITIONS, YOU MAY NOT ACCESS OR USE THE SITE. MyDrivingBlows.com MAY MODIFY THIS AGREEMENT AT ANY TIME, AND SUCH MODIFICATIONS SHALL BE EFFECTIVE IMMEDIATELY UPON POSTING OF THE MODIFIED AGREEMENT ON THE SITE. YOU AGREE TO REVIEW THE AGREEMENT PERIODICALLY TO BE AWARE OF SUCH MODIFICATIONS AND YOUR CONTINUED ACCESS OR USE OF THE SITE SHALL BE DEEMED YOUR CONCLUSIVE ACCEPTANCE OF THE MODIFIED AGREEMENT.</string>
+    <string name="terms_title2">Copyright, Licenses and Idea Submissions</string>
+    <string name="terms_text2">The entire contents of the Site are protected by international copyright and trademark laws. The owner of the copyrights and trademarks are MyDrivingBlows.com, its affiliates or other third party licensors. YOU MAY NOT MODIFY, COPY, REPRODUCE, REPUBLISH, UPLOAD, POST, TRANSMIT, OR DISTRIBUTE, IN ANY MANNER, THE MATERIAL ON THE SITE, INCLUDING TEXT, GRAPHICS, CODE AND/OR SOFTWARE. You may print and download portions of material from the different areas of the Site solely for your own non-commercial use provided that you agree not to change or delete any copyright or proprietary notices from the materials. You agree to grant to MyDrivingBlows.com a non-exclusive, royalty-free, worldwide, perpetual license, with the right to sub-license, to reproduce, distribute, transmit, create derivative works of, publicly display and publicly perform any materials and other information (including, without limitation, ideas contained therein for new or improved products and services) you submit to any public areas of the Site (such as bulletin boards, forums and newsgroups) or by e-mail to MyDrivingBlows.com by all means and in any media now known or hereafter developed. You also grant to MyDrivingBlows.com the right to use your name in connection with the submitted materials and other information as well as in connection with all advertising, marketing and promotional material related thereto. You agree that you shall have no recourse against MyDrivingBlows.com for any alleged or actual infringement or misappropriation of any proprietary right in your communications to MyDrivingBlows.com.</string>
+    <string name="terms_title3">Trademarks</string>
+    <string name="terms_text3">Publications, products, content or services referenced herein or on the Site are the exclusive trademarks or servicemarks of MyDrivingBlows.com. Other product and company names mentioned in the Site may be the trademarks of their respective owners.</string>
+    <string name="terms_title4">Use of the Site</string>
+    <string name="terms_text4">You understand that, except for information, products or services clearly identified as being supplied by MyDrivingBlows.com, MyDrivingBlows.comdoes not operate, control or endorse any information, products or services on the Internet in any way. Except for MyDrivingBlows.com- identified information, products or services, all information, products and services offered through the Site or on the Internet generally are offered by third parties, that are not affiliated with MyDrivingBlows.com. You also understand that MyDrivingBlows.com cannot and does not guarantee or warrant that files available for downloading through the Site will be free of infection or viruses, worms, TrojaN horses or other code that manifest contaminating or destructive properties. You are responsible for implementing sufficient procedures and checkpoints to satisfy your particular requirements for accuracy of data input and output, and for maintaining a means external to the Site for the reconstruction of any lost data.\n\nYOU ASSUME TOTAL RESPONSIBILITY AND RISK FOR YOUR USE OF THE SITE, MOBILE APPS, AND THE INTERNET. MyDrivingBlows.com PROVIDES THE SITE AND RELATED INFORMATION "AS IS" AND DOES NOT MAKE ANY EXPRESS OR IMPLIED WARRANTIES, REPRESENTATIONS OR ENDORSEMENTS WHATSOEVER (INCLUDING WITHOUT LIMITATION WARRANTIES OF TITLE OR NONINFRINGEMENT, OR THE IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE) WITH REGARD TO THE SERVICE, ANY MERCHANDISE INFORMATION OR SERVICE PROVIDED THROUGH THE SERVICE OR ON THE INTERNET GENERALLY, AND MyDrivingBlows.com SHALL NOT BE LIABLE FOR ANY COST OR DAMAGE ARISING EITHER DIRECTLY OR INDIRECTLY FROM ANY SUCH TRANSACTION. IT IS SOLELY YOUR RESPONSIBILITY TO EVALUATE THE ACCURACY, COMPLETENESS AND USEFULNESS OF ALL OPINIONS, ADVICE, SERVICES, MERCHANDISE AND OTHER INFORMATION PROVIDED THROUGH THE SERVICE OR ON THE INTERNET GENERALLY. MyDrivingBlows.com DOES NOT WARRANTTHAT THE SERVICE WILL BE UNINTERRUPTED OR ERROR-FREE OR THAT DEFECTS IN THESERVICE WILL BE CORRECTED.\n\nYOU UNDERSTAND FURTHER THAT THE PURE NATURE OF THE INTERNET CONTAINSUNEDITED MATERIALS SOME OF WHICH ARE SEXUALLY EXPLICIT OR MAY BE OFFENSIVETO YOU. YOUR ACCESS TO SUCH MATERIALS IS AT YOUR RISK. MyDrivingBlows.com HASNO CONTROL OVER AND ACCEPTS NO RESPONSIBILITY WHATSOEVER FOR SUCHMATERIALS.</string>
+    <string name="terms_title5">LIMITATION OF LIABILITY</string>
+    <string name="terms_text5">IN NO EVENT WILL MyDrivingBlows.com BE LIABLE FOR (I) ANY INCIDENTAL,CONSEQUENTIAL, OR INDIRECT DAMAGES (INCLUDING, BUT NOT LIMITED TO, DAMAGESFOR LOSS OF PROFITS, BUSINESS INTERRUPTION, LOSS OF PROGRAMS ORINFORMATION, AND THE LIKE) ARISING OUT OF THE USE OF OR INABILITY TO USE THESERVICE, OR ANY INFORMATION, OR TRANSACTIONS PROVIDED ON THE SERVICE, ORDOWNLOADED FROM THE SERVICE, OR ANY DELAY OF SUCH INFORMATION OR SERVICE.EVEN IF MyDrivingBlows.com OR ITS AUTHORIZED REPRESENTATIVES HAVE BEEN ADVISEDOF THE POSSIBILITY OF SUCH DAMAGES, OR (II) ANY CLAIM ATTRIBUTABLE TO ERRORS,OMISSIONS, OR OTHER INACCURACIES IN THE SERVICE AND/OR MATERIALS ORINFORMATION DOWNLOADED THROUGH THE SERVICE. BECAUSE SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU. IN SUCH STATES, MyDrivingBlows.com LIABILITY IS LIMITED TO THE GREATEST EXTENT PERMITTED BY LAW.\n\nIN NO EVENT WILL MyDrivingBlows.com BE LIABLE FOR (I) ANY INCIDENTAL, CONSEQUENTIAL, OR INDIRECT DAMAGES (INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, BUSINESS INTERRUPTION, LOSS OF PROGRAMS OR INFORMATION, AND THE LIKE) ARISING OUT OF THE USE OF THE MOBILE APPS. MyDrivingBlows.com WILL NOT BE HELD LIABLE IF THE APP IS USED WHILE OPERATING A MOTOR VEHICLE.\n\nMyDrivingBlows.com makes no representations whatsoever about any other web site which you may access through this one or which may link to this Site. When you access a non-MyDrivingBlows.com web site, please understand that it is independent from MyDrivingBlows.com, and that MyDrivingBlows.com has no control over the content on that web site. In addition, a link to a MyDrivingBlows.com web site does not mean that MyDrivingBlows.com endorses or accepts any responsibility for the content, or the use, of such web site.</string>
+    <string name="terms_title6">Indemnification</string>
+    <string name="terms_text6">You agree to indemnify, defend and hold harmless MyDrivingBlows.com, its officers, directors, employees, agents, licensors, suppliers and any third party information providers to the Service from and against all losses, expenses, damages and costs, including reasonable attorneys\' fees, resulting from any violation of this Agreement (including negligent or wrongful conduct) by you or any other person accessing the Service.</string>
+    <string name="terms_title7">Third Party Rights</string>
+    <string name="terms_text7">The provisions of paragraphs 2 (Use of the Service), and 3 (Indemnification) are for the benefit of MyDrivingBlows.com and its officers, directors, employees, agents, licensors, suppliers, and any third party information providers to the Service. Each of these individuals or entities shall have the right to assert and enforce those provisions directly against you on its own behalf.</string>
+    <string name="terms_title8">Term; Termination</string>
+    <string name="terms_text8">This Agreement may be terminated by either party without notice at any time for any reason. The provisions of paragraphs 1 (Copyright, Licenses and Idea Submissions), 2 (Use of the Service), 3 (Indemnification), 4 (Third Party Rights) and 6 (Miscellaneous) shall survive any termination of this Agreement.</string>
+    <string name="terms_title9">Miscellaneous</string>
+    <string name="terms_text9">This Agreement shall all be governed and construed in accordance with the laws of The United States of America applicable to agreements made and to be performed in The United States of America. You agree that any legal action or proceeding between MyDrivingBlows.com and you for any purpose concerning this Agreement or the parties\' obligations hereunder shall be broughtexclusively in a federal or state court of competent jurisdiction sitting in The United States of America . Any cause of action or claim you may have with respect to the Service must be commenced within one (1) year after the claim or cause of action arises or such claim or cause of action is barred. MyDrivingBlows.com\'s failure to insist upon or enforce strict performance of any provision of this Agreement shall not be construed as a waiver of any provision or right. Neither the course of conduct between the parties nor trade practice shall act to modify any provision of this Agreement. MyDrivingBlows.com may assign its rights and duties under this Agreement to any party at any time without notice to you.\n\nAny rights not expressly granted herein are reserved.</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="comment_2">Comment this driver&#8230;</string>
+    <string name="contact">Contact Us</string>
+    <string name="tag_onload">Tag a Plate on load</string>
+    <string name="delete">Delete</string>
+    <string name="internet_error">No Internet</string>
+    <string name="retry">Tap to Retry</string>
+    <string name="username_facebook">Your new username&#8230;</string>
+    <string name="title_activity_username">Account Settings</string>
+    <string name="username_description">You can create own username, in order to hide your personal Facebook account.\n\nMyDrivingBlows respects all confidential information, and always keeps it in secret.</string>
+    <string name="username_hint">Enter new username&#8230;</string>
+    <string name="dialog_geotagging">You can turn on GPS, to tag a location of taken photo.\n\nNote: Be sure, that geotagging is enabled in camera app.</string>
+
+</resources>
