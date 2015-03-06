@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="onload"
+        android:title="@string/pref_tag_title"
+        android:summary="@string/pref_tag_desc"
+        android:defaultValue="false" />
+
+</PreferenceScreen>

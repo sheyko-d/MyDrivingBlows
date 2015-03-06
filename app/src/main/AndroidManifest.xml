@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.moysof.mydrivingblows"
-    android:versionCode="18"
-    android:versionName="0.18" >
-
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+    package="com.moysof.mydrivingblows">
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -26,12 +20,25 @@
     <uses-permission android:name="com.moysof.mydrivingblows.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <!--This meta-data tag is required to use Google Play Services.-->
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+    <meta-data
+        android:name="com.facebook.sdk.ApplicationId"
+        android:value="@string/app_id" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:logo="@drawable/sm_logo"
-        android:theme="@style/AppBaseTheme" >
+        android:theme="@style/AppBaseTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
@@ -40,39 +47,42 @@
             android:value="AIzaSyCJb135gz1ckvxhzixrQo4ige7NngWQImk" />
 
         <activity
-            android:name="com.moysof.mydrivingblows.TagActivity"
+            android:name=".TagActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_tag" >
-        </activity>
+            android:label="@string/title_activity_tag"
+            android:theme="@style/AppBaseTheme.NoActionBar.Tag"></activity>
         <activity
-            android:name="com.moysof.mydrivingblows.NewsActivity"
-            android:label="@string/title_activity_list" >
-        </activity>
+            android:name=".NewsActivity"
+            android:theme="@style/AppBaseTheme.NoActionBar"
+            android:label="@string/title_activity_list"></activity>
         <activity
-            android:name="com.moysof.mydrivingblows.SearchActivity"
-            android:label="@string/title_activity_search" >
-        </activity>
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search"
+            android:theme="@style/AppBaseTheme.NoActionBar"></activity>
         <activity
-            android:name="com.moysof.mydrivingblows.LoginActivity"
+            android:name=".LoginActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_login" >
-        </activity>
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppBaseTheme.Login.NoActionBar"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <!--Include the AdActivity configChanges and theme. -->
         <activity
-            android:name="com.google.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.moysof.mydrivingblows.FeedActivity"
+            android:name=".FeedActivity"
             android:icon="@drawable/sm_logo"
-            android:label="@string/title_activity_feed" >
-        </activity>
+            android:label="@string/title_activity_feed"
+            android:theme="@style/AppBaseTheme.NoActionBar"></activity>
         <activity
             android:name="com.facebook.LoginActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden" />
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.moysof.mydrivingblows.LauncherActivity"
+            android:name=".LauncherActivity"
             android:label="@string/app_icon_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -80,9 +90,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.moysof.mydrivingblows.UsernameActivity"
-            android:label="@string/title_activity_username" >
-        </activity>
+            android:name=".UsernameActivity"
+            android:label="@string/title_activity_username"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@style/AppBaseTheme.NoActionBar"
+            android:label="@string/title_activity_settings"></activity>
+        <activity
+            android:name=".FullscreenVideoActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_video"
+            android:theme="@style/AppBaseTheme.Fullscreen"></activity>
+        <activity
+            android:name=".FullscreenImageActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_image"
+            android:theme="@style/AppBaseTheme.Gray" />
     </application>
 
 </manifest>

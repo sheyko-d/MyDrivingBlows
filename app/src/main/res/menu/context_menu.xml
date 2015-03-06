@@ -2,10 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/gallery"
-        android:title="@string/gallery"/>
+        android:id="@+id/image_gallery"
+        android:title="@string/image_gallery"/>
     <item
-        android:id="@+id/camera"
-        android:title="@string/camera"/>
+        android:id="@+id/image_camera"
+        android:title="@string/image_camera"/>
+    <item
+        android:id="@+id/video_gallery"
+        android:title="@string/video_gallery"/>
+    <item
+        android:id="@+id/video_camera"
+        android:title="@string/video_camera"/>
 
 </menu>

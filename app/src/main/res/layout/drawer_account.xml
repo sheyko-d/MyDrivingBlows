@@ -1,51 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="0"
-    android:background="#222"
-    android:orientation="horizontal"
     android:paddingBottom="8dp"
-    android:paddingLeft="8dp"
-    android:paddingRight="4dp"
-    android:paddingTop="8dp" >
+    android:clickable="true"
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/avatar"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="6dp"
-        android:src="@drawable/avatar" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/drawer_bg"
+        android:onClick="logIn"
+        android:foreground="?selectableItemBackground"
+        android:clickable="true"
+        android:layout_height="144dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical" >
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:singleLine="true"
-            android:textColor="#ccc"
-            android:textSize="16sp" />
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:paddingBottom="3dp"
-            android:singleLine="true"
-            android:textColor="#999"
-            android:textSize="14sp" />
+            <com.moysof.mydrivingblows.RoundedImageView
+                android:id="@+id/avatar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/placeholder_login" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <com.moysof.mydrivingblows.MediumRobotoText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
+                    android:textSize="14sp" />
+
+                <com.moysof.mydrivingblows.RegularRobotoText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="#FFF"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/imageView"
+                android:alpha="0.6"
+                android:src="@drawable/ic_logout"
+                android:layout_gravity="bottom" />
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

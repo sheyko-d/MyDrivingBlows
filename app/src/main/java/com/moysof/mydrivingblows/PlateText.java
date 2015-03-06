@@ -23,9 +23,11 @@ public class PlateText extends TextView {
 	}
 
 	private void init() {
-		Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
-				"LicensePlate.ttf");
-		setTypeface(tf);
+        if (!isInEditMode()) {
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/LicensePlate.ttf");
+            setTypeface(tf);
+        }
 	}
 
 }

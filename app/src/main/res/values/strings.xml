@@ -11,11 +11,11 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_feed">Tag Feed</string>
     <string name="add">Add comment</string>
-    <string name="login">Log in</string>
+    <string name="login">Log In</string>
     <string name="get_started">GET STARTED</string>
     <string name="sign_up">Sign up</string>
     <string name="join">ENTER</string>
-    <string name="remember">Keep Me Logged In</string>
+    <string name="remember">Keep me logged in</string>
     <string name="code">Code:</string>
     <string name="send_again">Send again</string>
     <string name="ok">OK</string>
@@ -26,32 +26,34 @@
     <string name="take_picture">TAKE A PICTURE</string>
     <string name="state_btn">State</string>
     <string name="post_button_text">POST COMMENT</string>
-    <string name="post_hint">Post</string>
+    <string name="post_hint">Comment</string>
     <string name="plate_hint">License Plate</string>
     <string name="no_comments">No comments</string>
-    <string name="gallery">Choose from gallery</string>
-    <string name="camera">Capture</string>
+    <string name="image_gallery">Choose photo from gallery</string>
+    <string name="image_camera">Take a photo</string>
+    <string name="video_gallery">Choose video from gallery</string>
+    <string name="video_camera">Record a video</string>
     <string name="version">Version: </string>
-    <string name="username">Username:</string>
-    <string name="username_or_email">Username or Email:</string>
-    <string name="password">Password:</string>
-    <string name="repeat_password">Repeat password:</string>
-    <string name="email">Email Address:</string>
-    <string name="first_name">First Name:</string>
-    <string name="last_name">Last Name:</string>
-    <string name="address1">Address №1:</string>
-    <string name="address2">Address №2:</string>
-    <string name="city">City:</string>
-    <string name="state">State:</string>
-    <string name="zip">Zip code:</string>
-    <string name="phone">Phone number:</string>
-    <string name="web">Website:</string>
+    <string name="username">Username</string>
+    <string name="username_or_email">Username or email</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="email">Email Address</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="address1">Address №1</string>
+    <string name="address2">Address №2</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zip">Zip code</string>
+    <string name="phone">Phone number</string>
+    <string name="web">Website</string>
     <string name="search_text">Search for License Plate</string>
     <string name="title_activity_activation">Confirm registration:</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_item">ItemActivity</string>
     <string name="title_activity_imagectivity">Imagectivity</string>
-    <string name="copyright">Copyright ©2014 All Rights Reserved.</string>
+    <string name="copyright">Copyright ©2015 All Rights Reserved.</string>
     <string name="copyright_text">Please do not use this app while driving. Obey all driving laws! MyDrivingBlows will not be held liable for reckless driving while using this app.</string>
     <string name="dialog_dont_show_again">Agree and don\&apos;t show again</string>
     <string name="dialog_text">Please keep your eyes on the road and obey applicable laws.\n\nDo not use this app while in motion.\n\nMyDrivingBlows will not be held liable for any accidents caused by unlawful use of this app.</string>
@@ -178,24 +180,25 @@
     <string name="log_out">Log Out</string>
     <string name="settings">SETTINGS</string>
     <string name="share">Share</string>
-    <string name="worst_driver">WORST DRIVER</string>
+    <string name="worst_driver">Worst driver</string>
     <string name="worst_drivers">WORST DRIVERS</string>
-    <string name="tag_feed">TAG FEED</string>
+    <string name="tag_feed">Tag feed</string>
     <string name="no_results">NO RESULTS</string>
-    <string name="no_items">NO TAGS YET</string>
+    <string name="no_items">No tags yet.</string>
 
     <string-array name="drawer_array">
         <item></item>
-        <item></item>
         <item>Tag Feed</item>
-        <item></item>
         <item>Tag a Plate</item>
-        <item></item>
         <item>My Tags</item>
         <item></item>
+        <item>Settings</item>
+        <item>Terms of Service</item>
+        <item>Contact Us</item>
+        <item>About</item>
     </string-array>
 
-    <string name="login_variants">– Or Use Your Email –</string>
+    <string name="login_variants">OR</string>
     <string name="title_activity_contact">Contact Us</string>
     <string name="app_id">591291470958073</string>
     <string name="about_text">Please do not use this app while driving. Obey all driving laws! MyDrivingBlows will not be held liable for reckless driving while using this app.</string>
@@ -230,5 +233,10 @@
     <string name="username_description">You can create own username, in order to hide your personal Facebook account.\n\nMyDrivingBlows respects all confidential information, and always keeps it in secret.</string>
     <string name="username_hint">Enter new username&#8230;</string>
     <string name="dialog_geotagging">You can turn on GPS, to tag a location of taken photo.\n\nNote: Be sure, that geotagging is enabled in camera app.</string>
+    <string name="pref_tag_title">Tag on load</string>
+    <string name="pref_tag_desc">Open \"Tag a Plate\" screen by default</string>
+    <string name="menu_clear">Clear file</string>
+    <string name="title_activity_video">Video</string>
+    <string name="title_activity_image">Image</string>
 
 </resources>

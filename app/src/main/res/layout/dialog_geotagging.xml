@@ -7,14 +7,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp" >
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp" >
 
-        <com.moysof.mydrivingblows.LightRobotoText
+        <com.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dialog_geotagging"
             android:textColor="#fff"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 </ScrollView>

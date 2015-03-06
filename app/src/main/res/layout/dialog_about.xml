@@ -1,82 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:alpha="0.2"
+        android:alpha="0.1"
         android:scaleType="centerCrop"
-        android:src="@drawable/about_dialog_bg" />
+        android:src="@drawable/about_dialog_bg"
+        android:layout_marginTop="16dp" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
-        <LinearLayout
+        <com.moysof.mydrivingblows.RegularRobotoText
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" >
+            android:layout_marginTop="32dp"
+            android:gravity="center_horizontal"
+            android:text="@string/copyright_text"
+            android:lineSpacingExtra="3dp"
+            android:textColor="#FFF"
+            android:textSize="14sp" />
+
+        <com.moysof.mydrivingblows.RegularRobotoText
+            android:id="@+id/dialogWebText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:textColorLink="@color/accent"
+            android:text="@string/website"
+            android:textSize="14sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="32dp"
+            android:layout_height="0dp">
 
             <com.moysof.mydrivingblows.LightRobotoText
-                android:id="@+id/textView1"
+                android:id="@+id/dialogVersionText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/version"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:text="@string/copyright"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:gravity="center_vertical"
+                android:drawablePadding="4dp"
                 android:textColor="#fff"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="12sp" />
+        </FrameLayout>
 
-            <com.moysof.mydrivingblows.MediumRobotoText
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_horizontal"
-                android:text="@string/copyright_text"
-                android:textColor="#ddd"
-                android:textSize="16sp" />
-
-            <com.moysof.mydrivingblows.LightRobotoText
-                android:id="@+id/dialogWebText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/website"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp" >
-
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="4dp"
-                    android:src="@drawable/version" />
-
-                <com.moysof.mydrivingblows.LightRobotoText
-                    android:id="@+id/dialogVersionText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:textColor="#fff"
-                    android:textSize="18sp" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        <com.moysof.mydrivingblows.RegularRobotoText
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/copyright"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#AAffffff"
+            android:textSize="12sp" />
+    </LinearLayout>
 
 </FrameLayout>

@@ -2,7 +2,6 @@ package com.moysof.mydrivingblows;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.FailReason;
 
 import java.util.ArrayList;
 
@@ -25,18 +23,20 @@ public class NewsListViewAdapter extends BaseAdapter {
 	private Activity activity;
 	private ArrayList<String> comments = new ArrayList<String>();
 	private ArrayList<String> photos = new ArrayList<String>();
+    private ArrayList<String> videos = new ArrayList<String>();
 	private ArrayList<String> plate_nums = new ArrayList<String>();
 	private ArrayList<String> plate_states = new ArrayList<String>();
 	private ImageLoader imgLoader;
 	private DisplayImageOptions options;
 
 	public NewsListViewAdapter(Activity activity, Context context,
-			ArrayList<String> comments, ArrayList<String> photos,
+			ArrayList<String> comments, ArrayList<String> photos, ArrayList<String> videos,
 			ArrayList<String> plate_nums, ArrayList<String> plate_states) {
 		this.activity = activity;
 		this.context = context;
 		this.comments = comments;
 		this.photos = photos;
+        this.videos = videos;
 		this.plate_nums = plate_nums;
 		this.plate_states = plate_states;
 		imgLoader = ImageLoader.getInstance();
@@ -95,7 +95,15 @@ public class NewsListViewAdapter extends BaseAdapter {
 		if (!photos.get(position).equals("")) {
 			imgLoader.displayImage(photos.get(position), photo);
 			photo.setVisibility(View.VISIBLE);
-		}
+		} else if (!videos.get(position).equals("")) {
+            photo.setVisibility(View.VISIBLE);
+        }
+
+        if (!photos.get(position).equals("") & !videos.get(position).equals("")) {
+            itemView.findViewById(R.id.videoIcon).setVisibility(View.VISIBLE);
+        } else {
+            itemView.findViewById(R.id.videoIcon).setVisibility(View.GONE);
+        }
 
 		plateNum.setText(plate_nums.get(position));
 		comment.setText(comments.get(position));

@@ -2,14 +2,28 @@
 <resources>
 
     <color name="blue">#00b0f0</color>
-    <color name="blue2">#0088b9</color>
-    <color name="green">#2dc100</color>
-    <color name="green2">#229200</color>
-    <color name="orange">#ff9c00</color>
-    <color name="orange2">#d07f00</color>
+    <color name="blue2">#169dce</color>
+    <color name="green">#00C853</color>
+    <color name="green2">#19a754</color>
+    <color name="orange">#FF6F00</color>
+    <color name="orange2">#db701d</color>
     <color name="overscroll">#33b5e5</color>
-    <color name="bg">#444</color>
-    <color name="divider">#555</color>
+    <color name="bg">#1c2529</color>
     <color name="divider_darker">#444</color>
+
+    <color name="primary">#455A64</color>
+    <color name="primary_dark">#263238</color>
+    <color name="primary_light">#C5CAE9</color>
+    <color name="accent">#00BCD4</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#666</color>
+
+    <color name="fab">@color/accent</color>
+    <color name="header">#80FFFFFF</color>
+    <color name="background_tab_pressed">#1AFFFFFF</color>
+    <color name="primary_gray">#88414141</color>
+    <color name="primary_gray_dark">#212121</color>
 
 </resources>

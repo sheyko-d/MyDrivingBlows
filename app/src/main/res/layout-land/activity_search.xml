@@ -207,7 +207,7 @@
             android:visibility="gone" />
     </FrameLayout>
 
-    <com.google.ads.AdView
+    <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -215,6 +215,6 @@
         ads:adSize="SMART_BANNER"
         ads:adUnitId="ca-app-pub-8744684132732286/3550518852"
         ads:loadAdOnCreate="true" >
-    </com.google.ads.AdView>
+    </com.google.android.gms.ads.AdView>
 
 </LinearLayout>

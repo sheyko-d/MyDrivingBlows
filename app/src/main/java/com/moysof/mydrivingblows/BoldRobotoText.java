@@ -23,9 +23,11 @@ public class BoldRobotoText extends TextView {
 	}
 
 	private void init() {
-		Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
-				"Roboto-Bold.ttf");
-		setTypeface(tf);
+        if (!isInEditMode()) {
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/Roboto-Bold.ttf");
+            setTypeface(tf);
+        }
 	}
 
 }

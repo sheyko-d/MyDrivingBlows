@@ -2,7 +2,35 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppBaseTheme" parent="Theme.AppCompat">
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="AppBaseTheme.NoActionBar" parent="AppBaseTheme">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppBaseTheme.Gray" parent="AppBaseTheme.NoActionBar">
+        <item name="colorPrimary">@color/primary_dark</item>
+        <item name="colorPrimaryDark">@color/primary_gray_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="AppBaseTheme.NoActionBar.Tag" parent="AppBaseTheme.NoActionBar">
+        <item name="colorControlNormal">#DDFFFFFF</item>
+        <item name="colorControlActivated">#EEFFFFFF</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
+    <style name="AppBaseTheme.Fullscreen" parent="AppBaseTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppBaseTheme.Login.NoActionBar" parent="AppBaseTheme.NoActionBar">
+        <item name="colorAccent">@android:color/white</item>
     </style>
 
     <style name="MyActionBar" parent="Widget.AppCompat.ActionBar.Solid">

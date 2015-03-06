@@ -23,9 +23,11 @@ public class MediumRobotoText extends TextView {
 	}
 
 	private void init() {
-		Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
-				"Roboto-Medium.ttf");
-		setTypeface(tf);
+        if (!isInEditMode()){
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/Roboto-Medium.ttf");
+		    setTypeface(tf);
+        }
 	}
 
 }

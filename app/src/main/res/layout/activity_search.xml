@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@color/bg"
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <LinearLayout
             android:id="@+id/searchLayout"
@@ -16,17 +18,16 @@
             android:layout_height="match_parent"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ListView
-                android:id="@android:id/list"
+                android:id="@+id/commentsList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:drawSelectorOnTop="false"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                android:visibility="gone" >
-            </ListView>
+                android:visibility="gone"></ListView>
 
             <ScrollView
                 android:id="@+id/itemScrollView"
@@ -34,25 +35,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scrollbars="none"
-                android:visibility="visible" >
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0" >
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/itemImage"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
-                            android:scaleType="fitCenter" >
-                        </ImageView>
+                            android:scaleType="fitCenter"/>
 
                         <com.moysof.mydrivingblows.PlateText
                             android:id="@+id/worstText"
@@ -64,25 +63,24 @@
                             android:shadowColor="@android:color/black"
                             android:shadowDx="1"
                             android:shadowDy="1"
+                            android:textColor="#FFF"
                             android:shadowRadius="3"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="80sp"
                             android:visibility="invisible" />
                     </FrameLayout>
 
-                    <com.moysof.mydrivingblows.LightRobotoText
+                    <com.moysof.mydrivingblows.RegularRobotoText
                         android:id="@+id/commentsText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_height="48dp"
+                        android:gravity="center_vertical"
                         android:layout_weight="0"
-                        android:background="#4a4a4a"
-                        android:padding="8dp"
                         android:text="@string/comments"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="18sp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:textColor="@color/header"
+                        android:textSize="14sp"
                         android:visibility="gone" />
 
                     <LinearLayout
@@ -90,12 +88,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:layout_weight="1"
-                        android:background="#3a3a3a"
-                        android:orientation="vertical" >
-                    </LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                     <TextView
                         android:id="@+id/commentsTextView"
@@ -114,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:orientation="horizontal"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/searchEditText"
@@ -124,7 +120,7 @@
                     android:digits="1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
                     android:hint="@string/plate_hint"
                     android:imeOptions="actionSearch"
-                    android:inputType="textNoSuggestions" >
+                    android:inputType="textNoSuggestions">
 
                     <requestFocus />
                 </EditText>
@@ -156,22 +152,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ee111111"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <uk.co.senab.photoview.PhotoView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop" >
-            </uk.co.senab.photoview.PhotoView>
+                android:scaleType="centerCrop"></uk.co.senab.photoview.PhotoView>
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/mapLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <fragment
                 android:id="@+id/map"
@@ -198,16 +193,27 @@
             android:layout_marginRight="64dp"
             android:indeterminate="true"
             android:visibility="gone" />
-    </FrameLayout>
 
-    <com.google.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-8744684132732286/3550518852"
-        ads:loadAdOnCreate="true" >
-    </com.google.ads.AdView>
+        <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/gradient_ab"
+            android:id="@+id/mytoolbar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <ImageButton
+            android:id="@+id/fab"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/fab_ripple"
+            android:layout_gravity="right|bottom"
+            android:contentDescription="@null"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:src="@drawable/ic_add"
+            android:stateListAnimator="@anim/raise" />
+    </FrameLayout>
 
 </LinearLayout>

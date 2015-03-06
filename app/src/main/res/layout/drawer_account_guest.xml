@@ -1,46 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:paddingBottom="8dp"
+    android:clickable="true"
+    android:layout_height="wrap_content">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#222" />
+        android:background="@drawable/drawer_bg"
+        android:onClick="logIn"
+        android:foreground="?selectableItemBackground"
+        android:clickable="true"
+        android:layout_height="144dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:selectableItemBackground"
-        android:orientation="horizontal"
-        android:padding="16dp" >
+        android:padding="16dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/avatar"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="8dp"
-            android:paddingTop="2dp"
-            android:src="@drawable/login" />
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+            <com.moysof.mydrivingblows.RoundedImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/drawerAvatarImg"
+                android:src="@drawable/placeholder_login"
+                android:layout_gravity="left|center_vertical" />
+        </FrameLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingTop="2dp"
-            android:text="@string/login"
-            android:textAllCaps="true"
-            android:textColor="#aaa"
-            android:textSize="20sp" />
+            android:background="?android:selectableItemBackground"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom">
 
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/arrow" />
+            <com.moysof.mydrivingblows.MediumRobotoText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/login"
+                android:textColor="#FFF"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>

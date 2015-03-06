@@ -2,123 +2,126 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin" >
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
-    <Button
+    <com.moysof.mydrivingblows.MediumRobotoButton
         android:id="@+id/getStartedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/button_signup"
         android:text="@string/get_started"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="14sp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_above="@+id/getStartedButton"
-        android:layout_alignParentTop="true" >
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingTop="@dimen/activity_vertical_margin" >
+            android:paddingTop="@dimen/activity_vertical_margin">
 
             <EditText
                 android:id="@+id/usernameEditTextSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:digits="1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.-_"
                 android:hint="@string/username"
+                android:backgroundTint="@color/orange"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName|textNoSuggestions"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/emailEditTextSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/orange"
+                android:layout_marginBottom="16dp"
                 android:hint="@string/email"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress|textNoSuggestions"
-                android:textSize="18sp" >
-            </EditText>
+                android:textSize="16sp"></EditText>
 
             <EditText
                 android:id="@+id/passwordEditTextSignup"
                 android:layout_width="match_parent"
+                android:backgroundTint="@color/orange"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:hint="@string/password"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword|textNoSuggestions"
-                android:textSize="18sp" >
-            </EditText>
+                android:textSize="16sp"></EditText>
 
             <EditText
                 android:id="@+id/repeatPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/orange"
                 android:hint="@string/repeat_password"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword|textNoSuggestions"
-                android:textSize="18sp" >
-            </EditText>
+                android:textSize="16sp"></EditText>
 
             <EditText
                 android:id="@+id/fnameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/orange"
+                android:layout_marginBottom="16dp"
                 android:digits="1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
                 android:hint="@string/first_name"
                 android:imeOptions="actionNext"
                 android:inputType="textNoSuggestions"
-                android:textSize="18sp" >
-            </EditText>
+                android:textSize="16sp"></EditText>
 
             <EditText
                 android:id="@+id/lnameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/orange"
+                android:layout_marginBottom="16dp"
                 android:digits="1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
                 android:hint="@string/last_name"
                 android:imeOptions="actionNext"
                 android:inputType="textNoSuggestions"
-                android:textSize="18sp" >
-            </EditText>
+                android:textSize="16sp"></EditText>
 
             <EditText
                 android:id="@+id/cityEditText"
                 android:layout_width="match_parent"
+                android:backgroundTint="@color/orange"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:hint="@string/city"
                 android:imeOptions="actionNext"
                 android:inputType="textNoSuggestions"
-                android:textSize="18sp" >
-            </EditText>
+                android:textSize="16sp"></EditText>
 
             <EditText
                 android:id="@+id/stateEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
                 android:hint="@string/state"
                 android:imeOptions="actionNext"
                 android:inputType="textNoSuggestions"
-                android:textSize="18sp" >
-            </EditText>
+                android:textSize="16sp"></EditText>
 
             <requestFocus />
         </LinearLayout>

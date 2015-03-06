@@ -23,9 +23,11 @@ public class LightRobotoText extends TextView {
 	}
 
 	private void init() {
-		Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
-				"Roboto-Light.ttf");
-		setTypeface(tf);
+        if (!isInEditMode()) {
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/Roboto-Light.ttf");
+            setTypeface(tf);
+        }
 	}
 
 }

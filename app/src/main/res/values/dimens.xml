@@ -4,5 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     
     <dimen name="padding_medium">8dp</dimen>
-    
+
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="facebook_btn_txtsize">14sp</dimen>
+
 </resources>
