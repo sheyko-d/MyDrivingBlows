@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/commentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/categoryBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:onClick="details"
+        android:elevation="0.5dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:stateListAnimator="@anim/raise_card"
+        card_view:cardCornerRadius="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#424242"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/photoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="176dp">
+
+                    <ProgressBar
+                        style="?android:progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/photoProgressBar"
+                        android:layout_gravity="center" />
+
+                    <ImageView
+                        android:id="@+id/photo"
+                        android:layout_width="match_parent"
+                        android:contentDescription="@null"
+                        android:layout_height="176dp"
+                        android:scaleType="centerCrop" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/gradient"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+
+                        <com.moysof.mydrivingblows.CondensedRegularRobotoText
+                            android:id="@+id/commentInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:paddingLeft="9dp"
+                            android:paddingRight="9dp"
+                            android:paddingBottom="4dp"
+                            android:includeFontPadding="false"
+                            android:paddingTop="8dp"
+                            android:textColor="#eee"
+                            android:textSize="14sp" />
+
+                        <com.moysof.mydrivingblows.RegularRobotoText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:paddingLeft="9dp"
+                            android:includeFontPadding="false"
+                            android:paddingRight="9dp"
+                            android:paddingBottom="8dp"
+                            android:maxLines="2"
+                            android:textColor="#fff"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:elevation="8dp">
+
+                        <ImageView
+                            android:id="@+id/plateImage"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:layout_gravity="center"
+                            android:scaleType="centerCrop" />
+
+                        <com.moysof.mydrivingblows.PlateText
+                            android:id="@+id/plateNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:shadowColor="#000"
+                            android:shadowRadius="3"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:visibility="gone"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_photo_error"
+                        android:id="@+id/errorImage"
+                        android:layout_gravity="center" />
+
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_play"
+                        android:id="@+id/videoIcon"
+                        android:visibility="gone"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>

@@ -36,48 +36,17 @@
                     android:layout_width="match_parent" />
             </android.support.v4.widget.SwipeRefreshLayout>
 
-            <!--<LinearLayout
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:visibility="gone"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="match_parent">
 
-                    <ScrollView xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
-                        android:id="@+id/scrollview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-
-
-                            <com.google.android.gms.ads.AdView
-                                android:id="@+id/adView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                ads:adSize="SMART_BANNER"
-                                ads:adUnitId="ca-app-pub-8744684132732286/3550518852"
-                                ads:loadAdOnCreate="true"></com.google.android.gms.ads.AdView>
-                        </LinearLayout>
-                    </ScrollView>
-
-
-            </LinearLayout>--><FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-        </FrameLayout>
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/suggestionsLayout"
@@ -160,16 +129,14 @@
 
             <ImageButton
                 android:id="@+id/fab"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_margin="16dp"
-                android:background="@drawable/fab_ripple"
+                android:background="@drawable/fab_selector"
                 android:layout_gravity="right|bottom"
                 android:contentDescription="@null"
-                android:elevation="8dp"
                 android:gravity="center"
-                android:src="@drawable/ic_menu_tag"
-                android:stateListAnimator="@anim/raise" />
+                android:src="@drawable/ic_menu_tag" />
         </FrameLayout>
     </LinearLayout>
 

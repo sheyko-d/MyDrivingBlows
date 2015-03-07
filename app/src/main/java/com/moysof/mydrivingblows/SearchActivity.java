@@ -489,7 +489,7 @@ public class SearchActivity extends ActionBarActivity {
                                                 .parseDouble(lonArrayList
                                                         .get(i)), 1);
                                 if (addresses.isEmpty()) {
-                                    item.findViewById(R.id.locationLayout)
+                                    locTextView
                                             .setVisibility(View.GONE);
                                 } else {
                                     if (addresses.size() > 0) {
@@ -510,8 +510,7 @@ public class SearchActivity extends ActionBarActivity {
                                     }
                                 }
                             } catch (Exception e) {
-                                item.findViewById(R.id.locationLayout)
-                                        .setVisibility(View.GONE);
+                                locTextView.setVisibility(View.GONE);
                                 Log(e);
                             }
                         } else {

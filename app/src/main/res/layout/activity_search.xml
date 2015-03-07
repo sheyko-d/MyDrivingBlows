@@ -207,7 +207,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
-            android:background="@drawable/fab_ripple"
+            android:background="@drawable/fab_selector"
             android:layout_gravity="right|bottom"
             android:contentDescription="@null"
             android:elevation="8dp"

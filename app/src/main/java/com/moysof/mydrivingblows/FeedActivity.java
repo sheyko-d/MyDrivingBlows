@@ -225,7 +225,6 @@ public class FeedActivity extends ActionBarActivity {
         mPullToRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.ptr_layout);
         mPullToRefreshLayout.setColorSchemeResources(new int[]{R.color.accent});
         worstImage = (ImageView) findViewById(R.id.worstImage);
-        worstImage2 = (ImageView) findViewById(R.id.worstImage2);
 
         FirstLaunch.isTrue = false;
 

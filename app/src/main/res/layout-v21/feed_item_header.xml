@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:orientation="vertical">
+
+    <com.moysof.mydrivingblows.MediumRobotoText
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/worst_driver"
+        android:textColor="@color/header"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/categoryBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:elevation="0.5dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:stateListAnimator="@anim/raise_card"
+        card_view:cardCornerRadius="2dp">
+
+        <ImageView
+            android:id="@+id/worstImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
+
+        <com.moysof.mydrivingblows.PlateText
+            android:id="@+id/worstText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="top|center_horizontal"
+            android:padding="5dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:textColor="@android:color/white"
+            android:shadowRadius="5"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="70sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="worst"></FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/gradient"
+            android:orientation="horizontal">
+
+            <com.moysof.mydrivingblows.CondensedRegularRobotoText
+                android:id="@+id/worstComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:paddingLeft="9dp"
+                android:paddingRight="9dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:textColor="#FFF"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <com.moysof.mydrivingblows.MediumRobotoText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/tag_feed"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/header"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="-4dp"
+        android:textSize="14sp" />
+
+</LinearLayout>
