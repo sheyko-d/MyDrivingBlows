@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.moysof.mydrivingblows"
+        applicationId "app.moysof.mydrivingblows"
         minSdkVersion 13
         targetSdkVersion 21
         versionCode 18

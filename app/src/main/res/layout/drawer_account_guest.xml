@@ -24,7 +24,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <com.moysof.mydrivingblows.RoundedImageView
+            <app.moysof.mydrivingblows.RoundedImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:id="@+id/drawerAvatarImg"
@@ -39,7 +39,7 @@
             android:orientation="horizontal"
             android:layout_gravity="bottom">
 
-            <com.moysof.mydrivingblows.MediumRobotoText
+            <app.moysof.mydrivingblows.MediumRobotoText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

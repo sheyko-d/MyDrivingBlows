@@ -62,7 +62,7 @@
                     android:paddingLeft="60dp"
                     android:paddingRight="60dp" />
 
-                <com.moysof.mydrivingblows.LightRobotoText
+                <app.moysof.mydrivingblows.LightRobotoText
                     android:id="@+id/noResults"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/no_internet" />
 
-                    <com.moysof.mydrivingblows.LightRobotoText
+                    <app.moysof.mydrivingblows.LightRobotoText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
@@ -112,7 +112,7 @@
                         android:textColor="#fff"
                         android:textSize="18sp" />
 
-                    <com.moysof.mydrivingblows.LightRobotoText
+                    <app.moysof.mydrivingblows.LightRobotoText
                         android:id="@+id/retryText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

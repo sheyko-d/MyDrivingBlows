@@ -17,7 +17,7 @@
         android:gravity="center_vertical"
         android:scaleType="fitCenter" />
 
-    <com.moysof.mydrivingblows.LightRobotoText
+    <app.moysof.mydrivingblows.LightRobotoText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -129,7 +129,7 @@
                         android:textSize="28sp"
                         android:layout_weight="1" />
 
-                    <com.moysof.mydrivingblows.MediumRobotoButton
+                    <app.moysof.mydrivingblows.MediumRobotoButton
                         android:id="@+id/stateButton"
                         android:layout_width="98dp"
                         android:layout_height="48dp"

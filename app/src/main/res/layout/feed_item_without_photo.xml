@@ -38,7 +38,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom">
 
-                        <com.moysof.mydrivingblows.CondensedRegularRobotoText
+                        <app.moysof.mydrivingblows.CondensedRegularRobotoText
                             android:id="@+id/commentInfo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                             android:textColor="#eee"
                             android:textSize="14sp" />
 
-                        <com.moysof.mydrivingblows.RegularRobotoText
+                        <app.moysof.mydrivingblows.RegularRobotoText
                             android:id="@+id/comment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                             android:layout_gravity="center"
                             android:scaleType="centerCrop" />
 
-                        <com.moysof.mydrivingblows.PlateText
+                        <app.moysof.mydrivingblows.PlateText
                             android:id="@+id/plateNum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

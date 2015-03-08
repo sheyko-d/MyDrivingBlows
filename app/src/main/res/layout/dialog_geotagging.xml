@@ -12,7 +12,7 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp" >
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dialog_geotagging"

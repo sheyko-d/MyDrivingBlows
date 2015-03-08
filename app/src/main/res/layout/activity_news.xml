@@ -68,7 +68,7 @@
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/news_placeholder" />
 
-                        <com.moysof.mydrivingblows.MediumRobotoText
+                        <app.moysof.mydrivingblows.MediumRobotoText
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -77,7 +77,7 @@
                             android:textColor="#747e83"
                             android:textSize="20sp" />
 
-                        <com.moysof.mydrivingblows.MediumRobotoButton
+                        <app.moysof.mydrivingblows.MediumRobotoButton
                             android:layout_width="120dp"
                             android:layout_marginTop="16dp"
                             android:text="TAG A PLATE"
@@ -127,7 +127,7 @@
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/no_internet" />
 
-                    <com.moysof.mydrivingblows.LightRobotoText
+                    <app.moysof.mydrivingblows.LightRobotoText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
@@ -138,7 +138,7 @@
                         android:textAllCaps="true"
                         android:textSize="18sp" />
 
-                    <com.moysof.mydrivingblows.LightRobotoText
+                    <app.moysof.mydrivingblows.LightRobotoText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"

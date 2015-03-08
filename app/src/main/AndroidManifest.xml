@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.moysof.mydrivingblows">
+    package="app.moysof.mydrivingblows">
 
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
 
     <permission
-        android:name="com.moysof.mydrivingblows.MAPS_RECEIVE"
+        android:name="app.moysof.mydrivingblows.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.moysof.mydrivingblows.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="app.moysof.mydrivingblows.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />

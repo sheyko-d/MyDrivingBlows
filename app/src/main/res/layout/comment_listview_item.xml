@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
 
-            <com.moysof.mydrivingblows.RoundedImageView
+            <app.moysof.mydrivingblows.RoundedImageView
                 android:id="@+id/commentsImageView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -56,7 +56,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <com.moysof.mydrivingblows.RegularRobotoText
+            <app.moysof.mydrivingblows.RegularRobotoText
                 android:id="@+id/infoTextView"
                 android:layout_width="match_parent"
                 android:includeFontPadding="false"
@@ -65,7 +65,7 @@
                 android:textColor="#bbb"
                 android:textSize="14sp" />
 
-            <com.moysof.mydrivingblows.RegularRobotoText
+            <app.moysof.mydrivingblows.RegularRobotoText
                 android:id="@+id/commentTextView"
                 android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                 android:textColor="#fff"
                 android:textSize="14sp" />
 
-            <com.moysof.mydrivingblows.RegularRobotoText
+            <app.moysof.mydrivingblows.RegularRobotoText
                 android:id="@+id/locTextView"
                 android:layout_width="wrap_content"
                 android:includeFontPadding="false"

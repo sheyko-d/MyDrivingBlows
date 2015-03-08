@@ -8,7 +8,7 @@
     android:paddingRight="4dp"
     android:orientation="vertical">
 
-    <com.moysof.mydrivingblows.MediumRobotoText
+    <app.moysof.mydrivingblows.MediumRobotoText
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -33,7 +33,7 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter" />
 
-        <com.moysof.mydrivingblows.PlateText
+        <app.moysof.mydrivingblows.PlateText
             android:id="@+id/worstText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             android:background="@drawable/gradient"
             android:orientation="horizontal">
 
-            <com.moysof.mydrivingblows.CondensedRegularRobotoText
+            <app.moysof.mydrivingblows.CondensedRegularRobotoText
                 android:id="@+id/worstComment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <com.moysof.mydrivingblows.MediumRobotoText
+    <app.moysof.mydrivingblows.MediumRobotoText
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="@string/tag_feed"

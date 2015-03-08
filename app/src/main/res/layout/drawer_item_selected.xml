@@ -15,7 +15,7 @@
         android:layout_height="24dp"
         android:contentDescription="@null" />
 
-    <com.moysof.mydrivingblows.MediumRobotoText
+    <app.moysof.mydrivingblows.MediumRobotoText
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

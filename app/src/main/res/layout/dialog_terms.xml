@@ -11,7 +11,7 @@
         android:paddingLeft="24dp"
         android:orientation="vertical">
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -19,7 +19,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -27,7 +27,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -35,7 +35,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -43,7 +43,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -51,7 +51,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -59,7 +59,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -67,7 +67,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -75,7 +75,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -83,7 +83,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -91,7 +91,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -99,7 +99,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -107,7 +107,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -115,7 +115,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -123,7 +123,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -131,7 +131,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -139,7 +139,7 @@
             android:textColor="#fff"
             android:textSize="14sp" />
 
-        <com.moysof.mydrivingblows.MediumRobotoText
+        <app.moysof.mydrivingblows.MediumRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -147,7 +147,7 @@
             android:textColor="@color/accent"
             android:textSize="16sp" />
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

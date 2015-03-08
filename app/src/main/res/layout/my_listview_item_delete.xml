@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content">
 
-            <com.moysof.mydrivingblows.RoundedImageView
+            <app.moysof.mydrivingblows.RoundedImageView
                 android:id="@+id/photo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -47,7 +47,7 @@
                 android:layout_gravity="center" />
         </FrameLayout>
 
-        <com.moysof.mydrivingblows.RegularRobotoText
+        <app.moysof.mydrivingblows.RegularRobotoText
             android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 android:focusable="false"
                 android:scaleType="centerCrop" />
 
-            <com.moysof.mydrivingblows.PlateText
+            <app.moysof.mydrivingblows.PlateText
                 android:id="@+id/plateNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
