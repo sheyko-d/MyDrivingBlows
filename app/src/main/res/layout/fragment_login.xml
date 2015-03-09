@@ -18,8 +18,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.facebook.widget.LoginButton
+            <app.moysof.mydrivingblows.MediumRobotoButton
                 android:id="@+id/authButton"
+                android:textColor="@android:color/white"
+                android:background="@drawable/btn_facebook_selector"
+                android:textSize="14sp"
+                android:paddingLeft="13dp"
+                android:drawableLeft="@drawable/ic_btn_facebook"
+                android:text="@string/facebook_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

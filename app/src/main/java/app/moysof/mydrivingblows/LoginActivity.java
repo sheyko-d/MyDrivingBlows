@@ -45,14 +45,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.Request;
-import com.facebook.Response;
 import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.UiLifecycleHelper;
-import com.facebook.model.GraphUser;
-import com.facebook.widget.LoginButton;
+import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
+import com.sromku.simple.fb.SimpleFacebookConfiguration;
+import com.sromku.simple.fb.entities.Profile;
+import com.sromku.simple.fb.listeners.OnLoginListener;
+import com.sromku.simple.fb.listeners.OnLogoutListener;
+import com.sromku.simple.fb.listeners.OnProfileListener;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -86,7 +86,6 @@ public class LoginActivity extends ActionBarActivity implements
 
     private static Context context;
     private PagerSlidingTabStrip mTabs;
-    private UiLifecycleHelper uiHelper;
     private Session mSession;
     private static EditText usernameEditTextSignup;
     private static EditText passwordEditTextSignup;
@@ -105,6 +104,8 @@ public class LoginActivity extends ActionBarActivity implements
     private static Editor editor;
     private static LoginActivity activity;
     private static SharedPreferences preferences;
+    Permission[] permissions = new Permission[]{Permission.PUBLISH_ACTION, Permission.EMAIL
+    };
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,15 +119,35 @@ public class LoginActivity extends ActionBarActivity implements
                 CommonUtilities.convertDpToPixel(72, this), 0);
         setSupportActionBar(toolbar);
 
-        // Log out from Facebook
-        mSession = Session.getActiveSession();
-        if (mSession != null) {
-            mSession.closeAndClearTokenInformation();
-            mSession.close();
-            Session.setActiveSession(null);
-        }
-
         context = getApplicationContext();
+        mSimpleFacebook = SimpleFacebook.getInstance(this);
+
+        SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
+                .setAppId("591291470958073")
+                .setNamespace("mydrivingblows")
+                .setPermissions(permissions)
+                .build();
+
+        SimpleFacebook.setConfiguration(configuration);
+
+        // Log out from Facebook
+        mSimpleFacebook.logout(new OnLogoutListener() {
+            @Override
+            public void onLogout() {
+            }
+
+            @Override
+            public void onThinking() {
+            }
+
+            @Override
+            public void onException(Throwable throwable) {
+            }
+
+            @Override
+            public void onFail(String s) {
+            }
+        });
 
         mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(
                 getSupportFragmentManager());
@@ -143,9 +164,6 @@ public class LoginActivity extends ActionBarActivity implements
 
         mTabs.setViewPager(mViewPager);
 
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
-
         try {
 
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
@@ -161,12 +179,16 @@ public class LoginActivity extends ActionBarActivity implements
         }
     }
 
-    private Session.StatusCallback callback = new Session.StatusCallback() {
-        @Override
-        public void call(Session session, SessionState state, Exception exception) {
-            onSessionStateChange(session, state, exception);
-        }
-    };
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab,
@@ -224,7 +246,7 @@ public class LoginActivity extends ActionBarActivity implements
         private EditText passwordEditTextLogin;
         private SharedPreferences preferences;
         private String loginURL = "http://mydrivingblows.com/app/login.php";
-        private LoginButton mFacebookBtn;
+        private Button mFacebookBtn;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -232,12 +254,135 @@ public class LoginActivity extends ActionBarActivity implements
             View rootView = inflater.inflate(R.layout.fragment_login,
                     container, false);
 
-            mFacebookBtn = (LoginButton) rootView.findViewById(R.id.authButton);
+            mFacebookBtn = (Button) rootView.findViewById(R.id.authButton);
             mFacebookBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.facebook_btn_txtsize));
 
             Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),
                     "fonts/Roboto-Medium.ttf");
             mFacebookBtn.setTypeface(tf);
+            mFacebookBtn.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log("onclick");
+                    if (mSimpleFacebook.isLogin()) {
+                        Toast.makeText(LoginActivity.this,
+                                "Error: Already logged in",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        mSimpleFacebook.login(new OnLoginListener() {
+                            @Override
+                            public void onLogin() {
+                                Log("onclick1");
+                            /*mSimpleFacebook.requestNewPermissions(permissions, true, new OnNewPermissionsListener() {
+                                @Override
+                                public void onSuccess(String s, List<Permission> permissions) {*/
+                                mSimpleFacebook.getProfile(new OnProfileListener() {
+                                    @Override
+                                    public void onComplete(Profile profile) {
+                                        Log("onclick2");
+
+                                        username = profile.getFirstName() + " "
+                                                + profile.getLastName();
+                                        editor.putString("username", username);
+                                        email = profile.getEmail();
+                                        editor.putString("email", email);
+                                        editor.putString("picture",
+                                                "https://graph.facebook.com/" + profile.getId() + "/picture?type=large");
+                                        editor.putBoolean("from_facebook", true);
+                                        editor.commit();
+                                        String location = "";
+                                        if (profile.getLocation() != null) {
+                                            location = profile.getLocation()
+                                                    .getName();
+                                        }
+                                        fname = profile.getFirstName();
+                                        lname = profile.getLastName();
+                                        if (location != null) {
+                                            try {
+                                                String[] locationArray = location
+                                                        .split(", ");
+                                                ArrayList<String> states_title = new ArrayList<String>(
+                                                        Arrays.asList(getResources()
+                                                                .getStringArray(
+                                                                        R.array.states_title)));
+                                                state = getResources().getStringArray(
+                                                        R.array.states_value)[states_title
+                                                        .indexOf(locationArray[1])];
+                                                city = locationArray[0];
+
+                                            } catch (Exception e) {
+
+                                            }
+                                        }
+                                        Log("username(local) = " + username);
+                                        if (isOnline()) {
+                                            new connectServerSignupTask().execute();
+                                        } else {
+                                            Toast.makeText(LoginActivity.this,
+                                                    "Error: Network problem",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+
+                                /*}
+
+                                @Override
+                                public void onNotAcceptingPermissions(Permission.Type type) {
+
+                                }
+
+                                @Override
+                                public void onThinking() {
+
+                                }
+
+                                @Override
+                                public void onException(Throwable throwable) {
+
+                                }
+
+                                @Override
+                                public void onFail(String s) {
+
+                                }
+                            });*/
+
+                            }
+
+                            @Override
+                            public void onNotAcceptingPermissions(Permission.Type type) {
+                                Log("onclicke1");
+                                Toast.makeText(LoginActivity.this,
+                                        "Error: Permissions aren't accepted",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onThinking() {
+
+                            }
+
+                            @Override
+                            public void onException(Throwable throwable) {
+                                Log("onclicke2");
+                                Toast.makeText(LoginActivity.this,
+                                        "Error: " + throwable.getMessage(),
+                                        Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFail(String s) {
+                                Log("onclicke3");
+                                Toast.makeText(LoginActivity.this,
+                                        "Error: Failed to log in",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+            });
 
             usernameEditTextLogin = (EditText) rootView
                     .findViewById(R.id.usernameEditTextLogin);
@@ -569,118 +714,6 @@ public class LoginActivity extends ActionBarActivity implements
             editor.putString("email", fd_email);
             editor.commit();
         }
-    }
-
-    private class SessionStatusCallback implements Session.StatusCallback {
-        @Override
-        public void call(Session session, SessionState state, Exception exception) {
-            // Respond to session state changes, ex: updating the view
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Session session = Session.getActiveSession();
-        if (session != null &&
-                (session.isOpened() || session.isClosed())) {
-            onSessionStateChange(session, session.getState(), null);
-        }
-        uiHelper.onResume();
-    }
-
-    private void onSessionStateChange(final Session session, SessionState sessionState, Exception exception) {
-        if (sessionState.isOpened()) {
-            if (!session.getPermissions().contains("email")) {
-                session.requestNewReadPermissions(new Session.NewPermissionsRequest(activity, Arrays.asList("email")));
-            } else if (!session.getPermissions().contains("publish_actions")) {
-                session.requestNewPublishPermissions(new Session.NewPermissionsRequest(activity, Arrays.asList("publish_actions")));
-            } else {
-                Request request = Request.newMeRequest(session,
-                        new Request.GraphUserCallback() {
-                            @Override
-                            public void onCompleted(GraphUser user, Response response) {
-                                // If the response is successful
-                                if (session == Session.getActiveSession()) {
-                                    if (user != null) {
-                                        username = user.getFirstName() + " "
-                                                + user.getLastName();
-                                        editor.putString("username", username);
-                                        email = (String) response.getGraphObject().getProperty("email");
-                                        Log("email = " + email);
-                                        editor.putString("email", email);
-                                        editor.putString("picture",
-                                                "https://graph.facebook.com/" + user.getId() + "/picture?type=large");
-                                        editor.putBoolean("from_facebook", true);
-                                        editor.commit();
-                                        String location = "";
-                                        if (user.getLocation() != null) {
-                                            location = user.getLocation()
-                                                    .getName();
-                                        }
-                                        fname = user.getFirstName();
-                                        lname = user.getLastName();
-                                        if (location != null) {
-                                            try {
-                                                String[] locationArray = location
-                                                        .split(", ");
-                                                ArrayList<String> states_title = new ArrayList<String>(
-                                                        Arrays.asList(getResources()
-                                                                .getStringArray(
-                                                                        R.array.states_title)));
-                                                state = getResources().getStringArray(
-                                                        R.array.states_value)[states_title
-                                                        .indexOf(locationArray[1])];
-                                                city = locationArray[0];
-
-                                            } catch (Exception e) {
-
-                                            }
-                                        }
-                                        Log("username(local) = " + username);
-                                        if (isOnline()) {
-                                            new connectServerSignupTask().execute();
-                                        } else {
-                                            Toast.makeText(LoginActivity.this,
-                                                    "Error: Network problem",
-                                                    Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                }
-                                if (response.getError() != null) {
-                                    // Handle errors, will do so later.
-                                }
-                            }
-                        });
-
-                request.executeAsync();
-            }
-        } else if (sessionState.isClosed()) {
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        uiHelper.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        uiHelper.onDestroy();
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        uiHelper.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        uiHelper.onActivityResult(requestCode, resultCode, data);
     }
 
     public static class SignupFragment extends Fragment {

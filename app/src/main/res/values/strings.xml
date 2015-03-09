@@ -238,5 +238,6 @@
     <string name="menu_clear">Clear file</string>
     <string name="title_activity_video">Video</string>
     <string name="title_activity_image">Image</string>
+    <string name="facebook_btn">LOG IN WITH FACEBOOK</string>
 
 </resources>

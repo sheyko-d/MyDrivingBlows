@@ -7,37 +7,4 @@
         android:icon="@drawable/ic_menu_search"
         android:title="@string/search_text" />
 
-    <!--<item
-        android:id="@+id/action_tag"
-        android:icon="@drawable/ic_menu_tag"
-        app:showAsAction="ifRoom"
-        android:title="@string/title_activity_tag" />
-
-    <item
-        android:id="@+id/action_load"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        android:checkable="true"
-        android:title="Tag a Plate on load"/>
-    <item
-        android:id="@+id/action_terms"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        android:title="@string/terms"/>
-    <item
-        android:id="@+id/action_contact"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        android:title="Contact Us"/>
-    <item
-        android:id="@+id/action_about"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        android:title="@string/about"/>
-    <item
-        android:id="@+id/action_logout"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        android:title="@string/log_out"/>-->
-
 </menu>

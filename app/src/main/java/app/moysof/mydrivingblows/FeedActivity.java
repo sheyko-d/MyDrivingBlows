@@ -260,6 +260,7 @@ public class FeedActivity extends ActionBarActivity {
                     startActivity(new Intent(FeedActivity.this, LoginActivity.class));
                 } else {
                     startActivity(new Intent(FeedActivity.this, TagActivity.class));
+                    finish();
                 }
             }
         });

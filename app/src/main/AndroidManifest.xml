@@ -108,4 +108,9 @@
             android:theme="@style/AppBaseTheme.Gray" />
     </application>
 
+    <provider
+        android:name="com.facebook.NativeAppCallContentProvider"
+        android:authorities="com.facebook.app.NativeAppCallContentProvider591291470958073"
+        android:exported="true" />
+
 </manifest>

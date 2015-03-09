@@ -1025,8 +1025,12 @@ public class SearchActivity extends ActionBarActivity {
                 Log("Server error: " + e.getMessage());
                 error = result;
             }
+            File folder = new File(Environment.getExternalStorageDirectory()
+                    + "/MyDrivingBlows/");
+            if (!folder.exists())
+                folder.mkdirs();
             filePath = Environment.getExternalStorageDirectory()
-                    + "/.SafeTracker/" + System.currentTimeMillis() + ".png";
+                    + "/MyDrivingBlows/" + System.currentTimeMillis() + ".png";
             try {
                 saveImage(plateLink, filePath);
             } catch (Exception e) {
@@ -1117,6 +1121,7 @@ public class SearchActivity extends ActionBarActivity {
                                                             + "\n\nGet MyDrivingBlows for Android: http://goo.gl/QtAvmd");
                                 }
 
+                                Log("filePath = " + filePath);
                                 targetedShare.putExtra(Intent.EXTRA_STREAM,
                                         Uri.fromFile(new File(filePath)));
                                 targetedShare
