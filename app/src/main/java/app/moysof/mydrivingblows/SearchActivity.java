@@ -410,11 +410,11 @@ public class SearchActivity extends ActionBarActivity {
                                 "1")) {
                             ((TextView) findViewById(R.id.commentsText))
                                     .setText(commentsArrayList.size()
-                                            + " COMMENT");
+                                            + " Comment");
                         } else {
                             ((TextView) findViewById(R.id.commentsText))
                                     .setText(commentsArrayList.size()
-                                            + " COMMENTS");
+                                            + " Comments");
                         }
                     }
                     itemScrollView.setVisibility(View.VISIBLE);

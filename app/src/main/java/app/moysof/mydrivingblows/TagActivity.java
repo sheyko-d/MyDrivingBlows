@@ -593,7 +593,7 @@ public class TagActivity extends ActionBarActivity {
                     }
 
                     imagePath = root + "/MyDrivingBlows/Thumbnails/" + fname;
-                    Log("imagePath = "+imagePath);
+                    Log("imagePath = " + imagePath);
                     break;
                 case CommonUtilities.CODE_TAKE_VIDEO:
                     Uri videoURI = data.getData();
@@ -921,7 +921,7 @@ public class TagActivity extends ActionBarActivity {
                 if (!(imagePath.equals(""))) {
                     multipartEntity.addPart("image", new FileBody(
                             new File(imagePath)));
-                    Log("imagePath2 = "+imagePath);
+                    Log("imagePath2 = " + imagePath);
                 }
 
                 if (!(mVideoPath.equals(""))) {
@@ -1082,6 +1082,22 @@ public class TagActivity extends ActionBarActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void logIn(View v) {
+        if (preferences.getString("username", "").equals("")) {
+            startActivity(new Intent(TagActivity.this,
+                    LoginActivity.class));
+        } else {
+            SharedPreferences.Editor editor = preferences.edit();
+            boolean usernameChanged = preferences.getBoolean(
+                    "username_changed", false);
+            editor.clear().commit();
+            editor.putBoolean("username_changed", usernameChanged).commit();
+            editor.putBoolean("agree", true).commit();
+            editor.commit();
+            startActivity(new Intent(TagActivity.this, LoginActivity.class));
+        }
     }
 
     private void clearPhoto() {

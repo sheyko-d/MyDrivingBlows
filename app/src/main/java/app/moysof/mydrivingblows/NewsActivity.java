@@ -183,8 +183,9 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
                                             .setText("Version: "
                                                     + getPackageManager().getPackageInfo(
                                                     getPackageName(), 0).versionName);
-                                } catch (PackageManager.NameNotFoundException e) {((TextView) dialogView.findViewById(R.id.dialogVersionText))
-                                        .setText("Version: n\\/a");
+                                } catch (PackageManager.NameNotFoundException e) {
+                                    ((TextView) dialogView.findViewById(R.id.dialogVersionText))
+                                            .setText("Version: n\\/a");
                                 }
                                 builder.setView(dialogView);
                                 builder.setNeutralButton("Close", null);
@@ -298,9 +299,39 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawer.isDrawerOpen(drawerList)) {
+                    drawer.closeDrawer(drawerList);
+                } else {
+                    drawer.openDrawer(drawerList);
+                }
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         return (cm.getActiveNetworkInfo() != null);
+    }
+
+    public void logIn(View v) {
+        if (preferences.getString("username", "").equals("")) {
+            startActivity(new Intent(NewsActivity.this,
+                    LoginActivity.class));
+        } else {
+            SharedPreferences.Editor editor = preferences.edit();
+            boolean usernameChanged = preferences.getBoolean(
+                    "username_changed", false);
+            editor.clear().commit();
+            editor.putBoolean("username_changed", usernameChanged).commit();
+            editor.putBoolean("agree", true).commit();
+            editor.commit();
+            startActivity(new Intent(NewsActivity.this, LoginActivity.class));
+        }
     }
 
     private InputStream is;
@@ -342,7 +373,6 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
     public void hideImage(View v) {
         v.setVisibility(View.GONE);
     }
-
 
 
     private void Log(Object Object) {
@@ -542,7 +572,7 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
         }
     }
 
-    public void tag(View v){
+    public void tag(View v) {
         startActivity(new Intent(NewsActivity.this, TagActivity.class));
         finish();
     }

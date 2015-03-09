@@ -24,7 +24,7 @@
     <string name="back">Back</string>
     <string name="comment">Add comment</string>
     <string name="take_picture">TAKE A PICTURE</string>
-    <string name="state_btn">State</string>
+    <string name="state_btn">STATE</string>
     <string name="post_button_text">POST COMMENT</string>
     <string name="post_hint">Comment</string>
     <string name="plate_hint">License Plate</string>
@@ -180,9 +180,9 @@
     <string name="log_out">Log Out</string>
     <string name="settings">SETTINGS</string>
     <string name="share">Share</string>
-    <string name="worst_driver">Worst driver</string>
+    <string name="worst_driver">Worst Driver</string>
     <string name="worst_drivers">WORST DRIVERS</string>
-    <string name="tag_feed">Tag feed</string>
+    <string name="tag_feed">Tag Feed</string>
     <string name="no_results">NO RESULTS</string>
     <string name="no_items">No tags yet.</string>
 

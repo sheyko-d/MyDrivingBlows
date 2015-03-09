@@ -505,8 +505,10 @@ public class LoginActivity extends ActionBarActivity implements
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            if (activity != null)
+            try {
                 serverProgressDialog.dismiss();
+            } catch (Exception e) {
+            }
             if (error.equals("")) {
                 Intent feedActivity = new Intent(activity,
                         FeedActivity.class);
