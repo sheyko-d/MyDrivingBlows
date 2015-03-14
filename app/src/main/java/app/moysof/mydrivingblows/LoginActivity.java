@@ -123,7 +123,7 @@ public class LoginActivity extends ActionBarActivity implements
         mSimpleFacebook = SimpleFacebook.getInstance(this);
 
         SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
-                .setAppId("591291470958073")
+                .setAppId("1579871415584216")
                 .setNamespace("mydrivingblows")
                 .setPermissions(permissions)
                 .build();
