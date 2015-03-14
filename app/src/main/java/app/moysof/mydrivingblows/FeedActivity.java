@@ -91,23 +91,23 @@ public class FeedActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        setContentView(R.layout.activity_feed);
+        setContentView(app.moysof.mydrivingblows.R.layout.activity_feed);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.mytoolbar);
+        Toolbar toolbar = (Toolbar) findViewById(app.moysof.mydrivingblows.R.id.mytoolbar);
         toolbar.setContentInsetsAbsolute(
                 CommonUtilities.convertDpToPixel(72, this), 0);
         setSupportActionBar(toolbar);
 
         if (!FirstLaunch.isTrue) {
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            overridePendingTransition(app.moysof.mydrivingblows.R.anim.fade_in, app.moysof.mydrivingblows.R.anim.fade_out);
         }
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(app.moysof.mydrivingblows.R.id.drawer_layout);
         adapter = new DrawerListViewAdapter(this, drawerPosition);
 
-        drawerList = (ListView) findViewById(R.id.left_drawer);
+        drawerList = (ListView) findViewById(app.moysof.mydrivingblows.R.id.left_drawer);
         drawerList.setAdapter(adapter);
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawer, R.string.app_name, R.string.app_name) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawer, app.moysof.mydrivingblows.R.string.app_name, app.moysof.mydrivingblows.R.string.app_name) {
 
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
@@ -164,7 +164,7 @@ public class FeedActivity extends ActionBarActivity {
                                 builder = new AlertDialog.Builder(FeedActivity.this);
                                 builder.setTitle("Terms of Service");
                                 View dialogView = new View(FeedActivity.this);
-                                dialogView = getLayoutInflater().inflate(R.layout.dialog_terms,
+                                dialogView = getLayoutInflater().inflate(app.moysof.mydrivingblows.R.layout.dialog_terms,
                                         null);
                                 builder.setView(dialogView);
                                 builder.setNeutralButton("Close", null);
@@ -191,20 +191,20 @@ public class FeedActivity extends ActionBarActivity {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(FeedActivity.this);
                                 builder.setTitle("About");
                                 View dialogView = new View(FeedActivity.this);
-                                dialogView = getLayoutInflater().inflate(R.layout.dialog_about,
+                                dialogView = getLayoutInflater().inflate(app.moysof.mydrivingblows.R.layout.dialog_about,
                                         null);
-                                ((TextView) dialogView.findViewById(R.id.dialogWebText))
+                                ((TextView) dialogView.findViewById(app.moysof.mydrivingblows.R.id.dialogWebText))
                                         .setText(Html.fromHtml("<a href=\""
-                                                + getResources().getString(R.string.website)
+                                                + getResources().getString(app.moysof.mydrivingblows.R.string.website)
                                                 + "\">"
-                                                + getResources().getString(R.string.website)
+                                                + getResources().getString(app.moysof.mydrivingblows.R.string.website)
                                                 + "</a>"));
                                 try {
-                                    ((TextView) dialogView.findViewById(R.id.dialogVersionText))
+                                    ((TextView) dialogView.findViewById(app.moysof.mydrivingblows.R.id.dialogVersionText))
                                             .setText("Version: "
                                                     + getPackageManager().getPackageInfo(
                                                     getPackageName(), 0).versionName);
-                                } catch (NameNotFoundException e) {((TextView) dialogView.findViewById(R.id.dialogVersionText))
+                                } catch (NameNotFoundException e) {((TextView) dialogView.findViewById(app.moysof.mydrivingblows.R.id.dialogVersionText))
                                         .setText("Version: n\\/a");
                                 }
                                 builder.setView(dialogView);
@@ -222,13 +222,13 @@ public class FeedActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        mPullToRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.ptr_layout);
-        mPullToRefreshLayout.setColorSchemeResources(new int[]{R.color.accent});
-        worstImage = (ImageView) findViewById(R.id.worstImage);
+        mPullToRefreshLayout = (SwipeRefreshLayout) findViewById(app.moysof.mydrivingblows.R.id.ptr_layout);
+        mPullToRefreshLayout.setColorSchemeResources(new int[]{app.moysof.mydrivingblows.R.color.accent});
+        worstImage = (ImageView) findViewById(app.moysof.mydrivingblows.R.id.worstImage);
 
         FirstLaunch.isTrue = false;
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.feedRecycler);
+        mRecyclerView = (RecyclerView) findViewById(app.moysof.mydrivingblows.R.id.feedRecycler);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -251,7 +251,7 @@ public class FeedActivity extends ActionBarActivity {
         new updateTask().execute();
 
 
-        mFAB = (ImageButton) findViewById(R.id.fab);
+        mFAB = (ImageButton) findViewById(app.moysof.mydrivingblows.R.id.fab);
         mFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (preferences.getString("username", "").equals("")) {
@@ -290,7 +290,7 @@ public class FeedActivity extends ActionBarActivity {
                 @Override
                 public void getOutline(View view, Outline outline) {
                     int shapeSize = getResources().getDimensionPixelSize(
-                            R.dimen.fab_size);
+                            app.moysof.mydrivingblows.R.dimen.fab_size);
                     outline.setRoundRect(0, 0, shapeSize, shapeSize,
                             shapeSize / 2);
                 }
@@ -311,7 +311,7 @@ public class FeedActivity extends ActionBarActivity {
         final Editor editor = preferences.edit();
         AlertDialog.Builder agreeDialogBuilder = new AlertDialog.Builder(this);
         agreeDialogBuilder.setTitle("Warning");
-        View agreeView = getLayoutInflater().inflate(R.layout.dialog_agree,
+        View agreeView = getLayoutInflater().inflate(app.moysof.mydrivingblows.R.layout.dialog_agree,
                 null);
         agreeDialogBuilder.setView(agreeView);
         agreeDialogBuilder.setCancelable(false);
@@ -352,11 +352,11 @@ public class FeedActivity extends ActionBarActivity {
             menu.findItem(R.id.action_load).setChecked(true);
         }*/
         MenuItemCompat.setOnActionExpandListener(
-                menu.findItem(R.id.action_search),
+                menu.findItem(app.moysof.mydrivingblows.R.id.action_search),
                 new OnActionExpandListener() {
                     @Override
                     public boolean onMenuItemActionCollapse(MenuItem item) {
-                        findViewById(R.id.suggestionsLayout).setVisibility(
+                        findViewById(app.moysof.mydrivingblows.R.id.suggestionsLayout).setVisibility(
                                 View.GONE);
                         return true;
                     }
@@ -428,18 +428,18 @@ public class FeedActivity extends ActionBarActivity {
                 mPullToRefreshLayout.setRefreshing(false);
 
                 mPullToRefreshLayout.setVisibility(View.VISIBLE);
-                findViewById(R.id.internetLayout).setVisibility(View.GONE);
+                findViewById(app.moysof.mydrivingblows.R.id.internetLayout).setVisibility(View.GONE);
                 new suggestionsTask().execute();
             } else {
                 if (isOnline()) {
                     // unlown error
                 } else {
                     mPullToRefreshLayout.setVisibility(View.GONE);
-                    findViewById(R.id.internetLayout).setVisibility(
+                    findViewById(app.moysof.mydrivingblows.R.id.internetLayout).setVisibility(
                             View.VISIBLE);
                 }
             }
-            findViewById(R.id.progressBar).setVisibility(View.GONE);
+            findViewById(app.moysof.mydrivingblows.R.id.progressBar).setVisibility(View.GONE);
         }
     }
 
@@ -474,8 +474,8 @@ public class FeedActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.feed, menu);
-        ((SearchView) menu.findItem(R.id.action_search).getActionView())
+        inflater.inflate(app.moysof.mydrivingblows.R.menu.feed, menu);
+        ((SearchView) menu.findItem(app.moysof.mydrivingblows.R.id.action_search).getActionView())
                 .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     @Override
                     public boolean onQueryTextSubmit(String s) {
@@ -488,10 +488,10 @@ public class FeedActivity extends ActionBarActivity {
                             suggestionsJSON = new JSONArray();
                             searchQuery = newText;
                             if (newText.length() > 0) {
-                                findViewById(R.id.suggestionsLayout)
+                                findViewById(app.moysof.mydrivingblows.R.id.suggestionsLayout)
                                         .setVisibility(View.VISIBLE);
                             } else {
-                                findViewById(R.id.suggestionsLayout)
+                                findViewById(app.moysof.mydrivingblows.R.id.suggestionsLayout)
                                         .setVisibility(View.GONE);
                             }
                             for (int i = 0; i < originalSuggestionsJSON
@@ -510,13 +510,13 @@ public class FeedActivity extends ActionBarActivity {
                             }
                             suggestionsAdapter = new GridViewSuggestionsAdapter(
                                     FeedActivity.this, suggestionsJSON);
-                            ((GridView) findViewById(R.id.suggestionsGrid))
+                            ((GridView) findViewById(app.moysof.mydrivingblows.R.id.suggestionsGrid))
                                     .setAdapter(suggestionsAdapter);
                             if (suggestionsJSON.length() > 0) {
-                                findViewById(R.id.noResults).setVisibility(
+                                findViewById(app.moysof.mydrivingblows.R.id.noResults).setVisibility(
                                         View.GONE);
                             } else {
-                                findViewById(R.id.noResults).setVisibility(
+                                findViewById(app.moysof.mydrivingblows.R.id.noResults).setVisibility(
                                         View.VISIBLE);
                             }
                         }
@@ -575,7 +575,7 @@ public class FeedActivity extends ActionBarActivity {
     }
 
     public void retry(View v) {
-        findViewById(R.id.internetLayout).setClickable(false);
+        findViewById(app.moysof.mydrivingblows.R.id.internetLayout).setClickable(false);
         /*TODO: Put this ugly animation back(?)
 
 		ObjectAnimator anim = (ObjectAnimator) AnimatorInflater.loadAnimator(
