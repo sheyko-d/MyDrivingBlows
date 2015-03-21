@@ -528,7 +528,10 @@ public class TagActivity extends ActionBarActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log("onActivityResult1");
+
         if (resultCode == RESULT_OK) {
+            Log("onActivityResult2");
             mImageLayout.setClickable(false);
             ((FrameLayout) mImageLayout).setForeground(null);
             mImageLayout.setOnClickListener(null);
@@ -555,6 +558,8 @@ public class TagActivity extends ActionBarActivity {
                     Uri selectedVideoURI = data.getData();
 
                     mVideoPath = getPath(getApplicationContext(), selectedVideoURI);
+
+                    Log("mVideoPath = "+mVideoPath);
 
                     findViewById(R.id.videoViewLayout).setVisibility(View.VISIBLE);
                     mVideoView.setVideoPath(mVideoPath);
@@ -596,6 +601,7 @@ public class TagActivity extends ActionBarActivity {
                     Log("imagePath = " + imagePath);
                     break;
                 case CommonUtilities.CODE_TAKE_VIDEO:
+                    Log("onActivityResult3");
                     Uri videoURI = data.getData();
                     mVideoPath = getPath(getApplicationContext(), videoURI);
 
@@ -613,6 +619,30 @@ public class TagActivity extends ActionBarActivity {
                             mediaController.show();
                         }
                     });
+
+                    thumbnailBitmap =
+                            ThumbnailUtils.createVideoThumbnail(mVideoPath,
+                                    MediaStore.Video.Thumbnails.MINI_KIND);
+
+                    root = Environment.getExternalStorageDirectory().toString();
+                    myDir = new File(root + "/MyDrivingBlows/Thumbnails/");
+                    if (!myDir.exists())
+                        myDir.mkdirs();
+                    fname = "Thumbnail" + System.currentTimeMillis() + ".jpg";
+                    file = new File(myDir, fname);
+                    if (file.exists()) file.delete();
+                    try {
+                        FileOutputStream out = new FileOutputStream(file);
+                        thumbnailBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                        out.flush();
+                        out.close();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    imagePath = root + "/MyDrivingBlows/Thumbnails/" + fname;
+                    Log("imagePath = " + imagePath);
                     break;
             }
         }
@@ -925,7 +955,12 @@ public class TagActivity extends ActionBarActivity {
                 }
 
                 if (!(mVideoPath.equals(""))) {
+                    Log("Video path exists = "+mVideoPath);
+
                     multipartEntity.addPart("video", new FileBody(
+                            new File(mVideoPath)));
+
+                    Log("Video file = "+new FileBody(
                             new File(mVideoPath)));
                 }
                 try {
@@ -990,7 +1025,8 @@ public class TagActivity extends ActionBarActivity {
     }
 
     private void Log(Object Object) {
-        Log.d("Log", "" + Object);
+        if (BuildConfig.DEBUG)
+            Log.d("Log", "" + Object);
     }
 
     @Override
