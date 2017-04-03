@@ -32,7 +32,7 @@ import android.preference.PreferenceManager;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -85,7 +85,7 @@ import java.util.Locale;
 
 import static app.moysof.mydrivingblows.CommonUtilities.convertDpToPixel;
 
-public class TagActivity extends ActionBarActivity {
+public class TagActivity extends AppCompatActivity {
 
     Button uploadButton;
     private String imagePath = "";
@@ -747,10 +747,15 @@ public class TagActivity extends ActionBarActivity {
 
     class loadPhotoTask extends AsyncTask<Void, Void, Void> {
 
+        private int height;
+        private int width;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             imageProgressBar.setVisibility(View.VISIBLE);
+            height = photoImageView.getHeight();
+            width = photoImageView.getWidth();
         }
 
         @Override
@@ -804,9 +809,9 @@ public class TagActivity extends ActionBarActivity {
             myBitmap = BitmapFactory.decodeFile(imagePath, bmpFactoryOptions);
 
             int heightRatio = (int) Math.ceil(bmpFactoryOptions.outHeight
-                    / (float) photoImageView.getHeight());
+                    / (float) height);
             int widthRatio = (int) Math.ceil(bmpFactoryOptions.outWidth
-                    / (float) photoImageView.getWidth());
+                    / (float) width);
 
             if (heightRatio > 1 || widthRatio > 1) {
                 if (heightRatio > widthRatio) {

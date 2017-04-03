@@ -24,7 +24,7 @@ import android.os.Environment;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.Html;
@@ -95,7 +95,7 @@ import java.util.Locale;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class SearchActivity extends ActionBarActivity {
+public class SearchActivity extends AppCompatActivity {
 
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapter;
@@ -249,25 +249,8 @@ public class SearchActivity extends ActionBarActivity {
     OnLoginListener onLoginListener = new OnLoginListener() {
 
         @Override
-        public void onFail(String reason) {
-            Toast.makeText(getApplicationContext(), "Login Fail: " + reason,
-                    Toast.LENGTH_LONG).show();
-        }
+        public void onLogin(String accessToken, List<Permission> acceptedPermissions, List<Permission> declinedPermissions) {
 
-        @Override
-        public void onException(Throwable throwable) {
-            Toast.makeText(getApplicationContext(),
-                    "Login Exception: " + throwable, Toast.LENGTH_LONG).show();
-        }
-
-        @Override
-        public void onThinking() {
-            Toast.makeText(getApplicationContext(), "Loading...",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onLogin() {
             Builder dialog = new Builder(SearchActivity.this);
             View dialogView = new View(SearchActivity.this);
             dialogView = getLayoutInflater().inflate(R.layout.comment_edittext,
@@ -312,8 +295,20 @@ public class SearchActivity extends ActionBarActivity {
         }
 
         @Override
-        public void onNotAcceptingPermissions(Permission.Type type) {
+        public void onCancel() {
 
+        }
+
+        @Override
+        public void onFail(String reason) {
+            Toast.makeText(getApplicationContext(), "Login Fail: " + reason,
+                    Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onException(Throwable throwable) {
+            Toast.makeText(getApplicationContext(),
+                    "Login Exception: " + throwable, Toast.LENGTH_LONG).show();
         }
     };
 
@@ -1166,7 +1161,6 @@ public class SearchActivity extends ActionBarActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 

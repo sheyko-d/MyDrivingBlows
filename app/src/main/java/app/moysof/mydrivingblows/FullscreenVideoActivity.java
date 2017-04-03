@@ -4,7 +4,7 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -12,7 +12,7 @@ import android.widget.VideoView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class FullscreenVideoActivity extends ActionBarActivity {
+public class FullscreenVideoActivity extends AppCompatActivity {
 
 	private VideoView mVideoView;
 

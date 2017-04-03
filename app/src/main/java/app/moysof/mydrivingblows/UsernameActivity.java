@@ -24,14 +24,14 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UsernameActivity extends ActionBarActivity {
+public class UsernameActivity extends AppCompatActivity {
 
 	private SharedPreferences preferences;
 	private String usernameURL = "http://mydrivingblows.com/app/username.php";

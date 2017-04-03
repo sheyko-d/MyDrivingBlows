@@ -6,4 +6,9 @@
         android:summary="@string/pref_tag_desc"
         android:defaultValue="false" />
 
+    <Preference
+        android:key="change_username"
+        android:title="Don't want to show your Facebook name?"
+        android:summary="Tap to create a username and use app incognito" />
+
 </PreferenceScreen>

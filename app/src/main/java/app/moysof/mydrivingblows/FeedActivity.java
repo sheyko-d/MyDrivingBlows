@@ -21,7 +21,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.MenuItemCompat.OnActionExpandListener;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -56,7 +56,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class FeedActivity extends ActionBarActivity {
+public class FeedActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout mPullToRefreshLayout;
     private String feedURL = "http://mydrivingblows.com/app/feed.php";
@@ -91,7 +91,7 @@ public class FeedActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        setContentView(app.moysof.mydrivingblows.R.layout.activity_feed);
+        setContentView(R.layout.activity_feed);
 
         Toolbar toolbar = (Toolbar) findViewById(app.moysof.mydrivingblows.R.id.mytoolbar);
         toolbar.setContentInsetsAbsolute(
@@ -391,10 +391,12 @@ public class FeedActivity extends ActionBarActivity {
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(feedURL);
                 HttpResponse response = httpclient.execute(httppost);
-                feedJSON = new JSONObject(EntityUtils.toString(response
-                        .getEntity()));
+                String responseTxt = EntityUtils.toString(response
+                        .getEntity());
+                Log(responseTxt);
+                feedJSON = new JSONObject(responseTxt);
             } catch (Exception e) {
-                Log("Error in http connection" + e.toString());
+                Log("Error in http connection2" + e.toString());
             }
             return null;
         }

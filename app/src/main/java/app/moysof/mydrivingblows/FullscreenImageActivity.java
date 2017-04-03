@@ -3,7 +3,7 @@ package app.moysof.mydrivingblows;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +19,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class FullscreenImageActivity extends ActionBarActivity {
+public class FullscreenImageActivity extends AppCompatActivity {
 
 	private ActionBar mActionBar;
 	private Toolbar mToolbar;

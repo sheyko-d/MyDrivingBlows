@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -51,7 +51,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsActivity extends ActionBarActivity implements OnItemLongClickListener {
+public class NewsActivity extends AppCompatActivity implements OnItemLongClickListener {
 
     private ProgressBar progressBar;
     private List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
@@ -203,6 +203,7 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        Log("will load");
         new serverNewsTask().execute();
     }
 
@@ -240,6 +241,7 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
 
         @Override
         protected Void doInBackground(Void... params) {
+            Log("getting plates from server");
             nameValuePairs.clear();
 
             nameValuePairs.add(new BasicNameValuePair("email", preferences
@@ -251,6 +253,8 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
                 nameValuePairs
                         .add(new BasicNameValuePair("from_facebook", "1"));
             }
+
+
 
             postToServer(nameValuePairs, newsURL);
 
@@ -364,7 +368,7 @@ public class NewsActivity extends ActionBarActivity implements OnItemLongClickLi
 
             is.close();
             result = sb.toString();
-            Log(result);
+            Log("news result: "+result);
         } catch (Exception e) {
             Log("Error converting result " + e.toString());
         }

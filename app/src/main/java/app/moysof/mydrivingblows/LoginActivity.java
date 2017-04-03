@@ -1,9 +1,6 @@
 package app.moysof.mydrivingblows;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +9,6 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -22,15 +18,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,21 +31,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.Session;
-import com.sromku.simple.fb.Permission;
-import com.sromku.simple.fb.SimpleFacebook;
-import com.sromku.simple.fb.SimpleFacebookConfiguration;
-import com.sromku.simple.fb.entities.Profile;
-import com.sromku.simple.fb.listeners.OnLoginListener;
-import com.sromku.simple.fb.listeners.OnLogoutListener;
-import com.sromku.simple.fb.listeners.OnProfileListener;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -62,7 +50,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -75,18 +63,15 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class LoginActivity extends ActionBarActivity implements
+public class LoginActivity extends AppCompatActivity implements
         ActionBar.TabListener {
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
     ViewPager mViewPager;
 
-    private static SimpleFacebook mSimpleFacebook;
-
     private static Context context;
     private PagerSlidingTabStrip mTabs;
-    private Session mSession;
     private static EditText usernameEditTextSignup;
     private static EditText passwordEditTextSignup;
     private static EditText repeatPasswordEditText;
@@ -104,8 +89,7 @@ public class LoginActivity extends ActionBarActivity implements
     private static Editor editor;
     private static LoginActivity activity;
     private static SharedPreferences preferences;
-    Permission[] permissions = new Permission[]{Permission.PUBLISH_ACTION, Permission.EMAIL
-    };
+    private CallbackManager mCallbackManager;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,34 +104,8 @@ public class LoginActivity extends ActionBarActivity implements
         setSupportActionBar(toolbar);
 
         context = getApplicationContext();
-        mSimpleFacebook = SimpleFacebook.getInstance(this);
 
-        SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
-                .setAppId("1579871415584216")
-                .setNamespace("mydrivingblows")
-                .setPermissions(permissions)
-                .build();
-
-        SimpleFacebook.setConfiguration(configuration);
-
-        // Log out from Facebook
-        mSimpleFacebook.logout(new OnLogoutListener() {
-            @Override
-            public void onLogout() {
-            }
-
-            @Override
-            public void onThinking() {
-            }
-
-            @Override
-            public void onException(Throwable throwable) {
-            }
-
-            @Override
-            public void onFail(String s) {
-            }
-        });
+        //1579871415584216
 
         mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(
                 getSupportFragmentManager());
@@ -177,6 +135,92 @@ public class LoginActivity extends ActionBarActivity implements
         } catch (Exception e) {
             Log.e("name not found", e.toString());
         }
+
+        initFacebook();
+    }
+
+    private void initFacebook() {
+        mCallbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().logOut();
+        LoginManager.getInstance().registerCallback(mCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        GraphRequest request = GraphRequest.newMeRequest(
+                                loginResult.getAccessToken(),
+                                new GraphRequest.GraphJSONObjectCallback() {
+                                    @Override
+                                    public void onCompleted(JSONObject object, GraphResponse response) {
+                                        Log(response.toString());
+
+                                        // Application code
+                                        try {
+                                            username = object.getString("first_name") + " "
+                                                    + object.getString("last_name");
+                                            editor = PreferenceManager
+                                                    .getDefaultSharedPreferences(LoginActivity.this)
+                                                    .edit();
+                                            editor.putString("username", username);
+                                            email = object.getString("email");
+                                            editor.putString("email", email);
+                                            editor.putString("picture",
+                                                    "https://graph.facebook.com/" + object.getString("id") + "/picture?type=large");
+                                            editor.putBoolean("from_facebook", true);
+                                            editor.commit();
+                                            String location = "";
+                                            /*TODO: if (profile.getLocation() != null) {
+                                                location = profile.getLocation()
+                                                        .getName();
+                                            }*/
+                                            fname = object.getString("first_name");
+                                            lname = object.getString("last_name");
+                                            if (location != null) {
+                                                try {
+                                                    String[] locationArray = location
+                                                            .split(", ");
+                                                    ArrayList<String> states_title = new ArrayList<String>(
+                                                            Arrays.asList(getResources()
+                                                                    .getStringArray(
+                                                                            R.array.states_title)));
+                                                    state = getResources().getStringArray(
+                                                            R.array.states_value)[states_title
+                                                            .indexOf(locationArray[1])];
+                                                    city = locationArray[0];
+
+                                                } catch (Exception e) {
+
+                                                }
+                                            }
+                                            Log("username(local) = " + username);
+                                            if (isOnline()) {
+                                                new connectServerSignupTask().execute();
+                                            } else {
+                                                Toast.makeText(LoginActivity.this,
+                                                        "Error: Network problem",
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+                                        } catch (JSONException e) {
+                                            Toast.makeText(LoginActivity.this, "Some data is missing from your Facebook account", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id,first_name, last_name,email,location");
+                        request.setParameters(parameters);
+                        request.executeAsync();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                    }
+                });
     }
 
     @Override
@@ -186,8 +230,8 @@ public class LoginActivity extends ActionBarActivity implements
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -238,333 +282,6 @@ public class LoginActivity extends ActionBarActivity implements
         }
     }
 
-    @SuppressLint("ValidFragment")
-    public class LoginFragment extends Fragment {
-
-        private EditText usernameEditTextLogin;
-        private Button joinButton;
-        private EditText passwordEditTextLogin;
-        private SharedPreferences preferences;
-        private String loginURL = "http://mydrivingblows.com/app/login.php";
-        private Button mFacebookBtn;
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_login,
-                    container, false);
-
-            mFacebookBtn = (Button) rootView.findViewById(R.id.authButton);
-            mFacebookBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.facebook_btn_txtsize));
-
-            Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),
-                    "fonts/Roboto-Medium.ttf");
-            mFacebookBtn.setTypeface(tf);
-            mFacebookBtn.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log("onclick");
-                    if (mSimpleFacebook.isLogin()) {
-                        Toast.makeText(LoginActivity.this,
-                                "Error: Already logged in",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        mSimpleFacebook.login(new OnLoginListener() {
-                            @Override
-                            public void onLogin() {
-                                Log("onclick1");
-                            /*mSimpleFacebook.requestNewPermissions(permissions, true, new OnNewPermissionsListener() {
-                                @Override
-                                public void onSuccess(String s, List<Permission> permissions) {*/
-                                mSimpleFacebook.getProfile(new OnProfileListener() {
-                                    @Override
-                                    public void onComplete(Profile profile) {
-                                        Log("onclick2");
-
-                                        username = profile.getFirstName() + " "
-                                                + profile.getLastName();
-                                        editor.putString("username", username);
-                                        email = profile.getEmail();
-                                        editor.putString("email", email);
-                                        editor.putString("picture",
-                                                "https://graph.facebook.com/" + profile.getId() + "/picture?type=large");
-                                        editor.putBoolean("from_facebook", true);
-                                        editor.commit();
-                                        String location = "";
-                                        if (profile.getLocation() != null) {
-                                            location = profile.getLocation()
-                                                    .getName();
-                                        }
-                                        fname = profile.getFirstName();
-                                        lname = profile.getLastName();
-                                        if (location != null) {
-                                            try {
-                                                String[] locationArray = location
-                                                        .split(", ");
-                                                ArrayList<String> states_title = new ArrayList<String>(
-                                                        Arrays.asList(getResources()
-                                                                .getStringArray(
-                                                                        R.array.states_title)));
-                                                state = getResources().getStringArray(
-                                                        R.array.states_value)[states_title
-                                                        .indexOf(locationArray[1])];
-                                                city = locationArray[0];
-
-                                            } catch (Exception e) {
-
-                                            }
-                                        }
-                                        Log("username(local) = " + username);
-                                        if (isOnline()) {
-                                            new connectServerSignupTask().execute();
-                                        } else {
-                                            Toast.makeText(LoginActivity.this,
-                                                    "Error: Network problem",
-                                                    Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-
-
-                                /*}
-
-                                @Override
-                                public void onNotAcceptingPermissions(Permission.Type type) {
-
-                                }
-
-                                @Override
-                                public void onThinking() {
-
-                                }
-
-                                @Override
-                                public void onException(Throwable throwable) {
-
-                                }
-
-                                @Override
-                                public void onFail(String s) {
-
-                                }
-                            });*/
-
-                            }
-
-                            @Override
-                            public void onNotAcceptingPermissions(Permission.Type type) {
-                                Log("onclicke1");
-                                Toast.makeText(LoginActivity.this,
-                                        "Error: Permissions aren't accepted",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onThinking() {
-
-                            }
-
-                            @Override
-                            public void onException(Throwable throwable) {
-                                Log("onclicke2");
-                                Toast.makeText(LoginActivity.this,
-                                        "Error: " + throwable.getMessage(),
-                                        Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onFail(String s) {
-                                Log("onclicke3");
-                                Toast.makeText(LoginActivity.this,
-                                        "Error: Failed to log in",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                }
-            });
-
-            usernameEditTextLogin = (EditText) rootView
-                    .findViewById(R.id.usernameEditTextLogin);
-
-            joinButton = (Button) rootView.findViewById(R.id.joinButton);
-            joinButton.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    logIn();
-                }
-            });
-
-            passwordEditTextLogin = (EditText) rootView
-                    .findViewById(R.id.passwordEditTextLogin);
-
-            passwordEditTextLogin
-                    .setOnEditorActionListener(new EditText.OnEditorActionListener() {
-                        @Override
-                        public boolean onEditorAction(TextView v, int actionId,
-                                                      KeyEvent event) {
-                            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                                logIn();
-                                return true;
-                            }
-                            return false;
-                        }
-                    });
-
-            preferences = PreferenceManager
-                    .getDefaultSharedPreferences(getActivity());
-
-            editor = preferences.edit();
-
-            return rootView;
-        }
-
-        public void logIn() {
-            if (isOnline()) {
-                if (usernameEditTextLogin.getText().toString().equals("")
-                        || passwordEditTextLogin.getText().toString()
-                        .equals("")) {
-                    Toast.makeText(getActivity(),
-                            "Error: Some fields are empty", Toast.LENGTH_LONG)
-                            .show();
-                } else {
-                    if (isOnline()) {
-                        new connectServerLoginTask().execute();
-                    } else {
-                        Toast.makeText(getActivity(), "Error: Network problem",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-            } else {
-                Toast.makeText(getActivity(),
-                        "Error: Check your internet connection",
-                        Toast.LENGTH_LONG).show();
-            }
-        }
-
-        public boolean isOnline() {
-            ConnectivityManager cm = (ConnectivityManager) getActivity()
-                    .getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo netInfo = cm.getActiveNetworkInfo();
-            if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-                return true;
-            }
-            return false;
-        }
-
-        class connectServerLoginTask extends AsyncTask<Void, Void, Void> {
-
-            private String error;
-            private String fd_fname;
-            private String fd_username;
-            private String fd_password;
-            private String fd_email;
-            private ProgressDialog serverProgressDialogLogin;
-
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                serverProgressDialogLogin = new ProgressDialog(getActivity());
-                serverProgressDialogLogin.setMessage("Loading...");
-                serverProgressDialogLogin.setCancelable(false);
-                serverProgressDialogLogin.show();
-                InputMethodManager imm = (InputMethodManager) context
-                        .getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(
-                        passwordEditTextLogin.getWindowToken(), 0);
-                imm.hideSoftInputFromWindow(
-                        usernameEditTextLogin.getWindowToken(), 0);
-            }
-
-            @Override
-            protected Void doInBackground(Void... params) {
-                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-
-                nameValuePairs.add(new BasicNameValuePair("username",
-                        usernameEditTextLogin.getText().toString()));
-                nameValuePairs.add(new BasicNameValuePair("password",
-                        passwordEditTextLogin.getText().toString()));
-
-                String result = null;
-                try {
-                    HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost(loginURL);
-                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                    HttpResponse response = httpclient.execute(httppost);
-                    HttpEntity entity = response.getEntity();
-                    InputStream is = entity.getContent();
-
-                    StringBuilder sb = null;
-                    BufferedReader reader = new BufferedReader(
-                            new InputStreamReader(is, "iso-8859-1"), 8);
-                    sb = new StringBuilder();
-                    sb.append(reader.readLine());
-                    String line = "0";
-                    while ((line = reader.readLine()) != null) {
-                        sb.append(line);
-                    }
-                    is.close();
-                    result = sb.toString();
-
-                    JSONArray jArray = new JSONArray(result);
-                    JSONObject json_data = null;
-                    String server_result = jArray.getJSONObject(0).getString(
-                            "result");
-                    if (server_result.equals("success")) {
-                        error = "";
-                        for (int i = 0; i < jArray.length(); i++) {
-                            json_data = jArray.getJSONObject(i);
-                            fd_fname = json_data.getString("fname");
-                            fd_username = json_data.getString("username");
-                            fd_email = json_data.getString("email");
-                            fd_password = json_data.getString("password");
-                        }
-                    } else {
-                        error = server_result;
-                    }
-                } catch (Exception e) {
-                    Log("Server error: " + e.getMessage());
-                    error = result;
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void result) {
-                super.onPostExecute(result);
-                serverProgressDialogLogin.dismiss();
-                if (error.equals("")) {
-                    savePreferences();
-                    Intent feedActivity = new Intent(getActivity(),
-                            FeedActivity.class);
-                    feedActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(feedActivity);
-                    Toast.makeText(getActivity(),
-                            "Welcome back, " + fd_fname + "!",
-                            Toast.LENGTH_SHORT).show();
-                    getActivity().finish();
-                } else {
-                    usernameEditTextLogin.setEnabled(true);
-                    passwordEditTextLogin.setEnabled(true);
-                    joinButton.setEnabled(true);
-                    Toast.makeText(getActivity(), "Error: " + error,
-                            Toast.LENGTH_LONG).show();
-                }
-            }
-
-            public void savePreferences() {
-                editor = preferences.edit();
-                editor.putString("username", fd_username);
-                editor.putString("password", fd_password);
-                editor.putString("email", fd_email);
-                editor.commit();
-            }
-        }
-
-    }
 
     static class connectServerSignupTask extends AsyncTask<Void, Void, Void> {
 
@@ -663,33 +380,6 @@ public class LoginActivity extends ActionBarActivity implements
                         Toast.LENGTH_SHORT).show();
                 activity.startActivity(feedActivity);
 
-                if (!preferences.getBoolean("username_changed", false)
-                        & fd_username.contains(" ")) {// it means user is
-                    // from Facebook
-                    NotificationCompat.Builder builder = new NotificationCompat.Builder(
-                            activity)
-                            .setSmallIcon(R.drawable.ic_launcher)
-                            .setTicker(
-                                    "Don't want to show your Facebook name?")
-                            .setContentTitle("Tap to create a username")
-                            .setContentText("And use app incognito")
-                            .setAutoCancel(true);
-
-                    Intent notificationIntent = new Intent(activity,
-                            UsernameActivity.class);
-                    notificationIntent
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    PendingIntent contentIntent = PendingIntent
-                            .getActivity(activity, 0,
-                                    notificationIntent,
-                                    PendingIntent.FLAG_UPDATE_CURRENT);
-                    builder.setContentIntent(contentIntent);
-                    NotificationManager manager = (NotificationManager) activity
-                            .getSystemService(Context.NOTIFICATION_SERVICE);
-                    manager.notify(0, builder.build());
-                    editor.putBoolean("username_changed", true).commit();
-                }
-
                 activity.finish();
 
             } else {
@@ -703,17 +393,6 @@ public class LoginActivity extends ActionBarActivity implements
             }
         }
 
-        public void savePreferences() {
-            SharedPreferences preferences = PreferenceManager
-                    .getDefaultSharedPreferences(activity);
-
-            Editor editor = preferences.edit();
-            editor = preferences.edit();
-            editor.putString("username", fd_username);
-            editor.putString("password", fd_password);
-            editor.putString("email", fd_email);
-            editor.commit();
-        }
     }
 
     public static class SignupFragment extends Fragment {

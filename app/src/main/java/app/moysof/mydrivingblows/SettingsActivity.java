@@ -1,13 +1,16 @@
 package app.moysof.mydrivingblows;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class SettingsActivity extends ActionBarActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,22 @@ public class SettingsActivity extends ActionBarActivity {
         public void onCreate(Bundle paramBundle) {
             super.onCreate(paramBundle);
             addPreferencesFromResource(R.xml.pref_general);
+
+            if (PreferenceManager.getDefaultSharedPreferences(getActivity()).getString
+                    ("username", "").contains(" ")) {
+                findPreference("change_username").setEnabled(true);
+            } else {
+                findPreference("change_username").setEnabled(false);
+            }
+
+            findPreference("change_username").setOnPreferenceClickListener(new Preference
+                    .OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    startActivity(new Intent(getActivity(), UsernameActivity.class));
+                    return true;
+                }
+            });
         }
     }
 

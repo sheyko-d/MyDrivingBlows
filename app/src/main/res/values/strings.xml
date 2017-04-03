@@ -53,7 +53,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_item">ItemActivity</string>
     <string name="title_activity_imagectivity">Imagectivity</string>
-    <string name="copyright">Copyright ©2015 All Rights Reserved.</string>
+    <string name="copyright">Copyright ©2016 All Rights Reserved.</string>
     <string name="copyright_text">Please do not use this app while driving. Obey all driving laws! MyDrivingBlows will not be held liable for reckless driving while using this app.</string>
     <string name="dialog_dont_show_again">Agree and don\&apos;t show again</string>
     <string name="dialog_text">Please keep your eyes on the road and obey applicable laws.\n\nDo not use this app while in motion.\n\nMyDrivingBlows will not be held liable for any accidents caused by unlawful use of this app.</string>
